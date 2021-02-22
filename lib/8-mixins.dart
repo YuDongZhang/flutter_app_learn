@@ -1,3 +1,6 @@
+/// 方法可以是一样的 ,
+
+
 main() {
   Bicycle().transport();
   Motorcycle().transport();
@@ -29,8 +32,7 @@ class Bicycle extends Transportation
 }
 
 //摩托车
-class Motorcycle extends Transportation
-    with TwoWheelTransportation, LowSafetyIndex, GasolineEnergyTransportation {
+class Motorcycle extends Transportation with TwoWheelTransportation, LowSafetyIndex, GasolineEnergyTransportation {
   @override
   void transport() {
     print(

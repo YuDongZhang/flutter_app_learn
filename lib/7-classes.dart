@@ -57,12 +57,12 @@ main() {
 
   //可调用类
   var cf = new ClassFunction();
-  var out = cf("dongnao","flutter,","damon");
+  var out = cf("dongnao", "flutter,", "damon");
   print('$out'); // Hi there, gang!
   print(cf.runtimeType); // WannabeFunction
   print(out.runtimeType); // String
   print(cf is Function); // true
-  
+
   //重载操作符
   final v1 = Vector(2, 3);
   final v2 = Vector(2, 2);
@@ -174,10 +174,11 @@ class Singleton {
 
 //工厂函数
 class Massage {
-  void doMassage(){
+  void doMassage() {
     print('按摩');
   }
 }
+
 class FootMassage extends Massage {
   @override
   doMassage() {
@@ -198,7 +199,8 @@ class SpecialMassage extends Massage {
     print('特殊按摩');
   }
 }
-Massage massageFactory(String type){
+
+Massage massageFactory(String type) {
   switch (type) {
     case 'foot':
       return new FootMassage();
@@ -260,10 +262,13 @@ class Rectangle {
   // getter 和 setter 的好处是，可以开始使用实例变量，后面可以把实例变量用函数包裹起来，而调用你代码的地方不需要修改。
   //获取right值
   num get right => left + width;
+
   //设置right值，同时left也发生变化
   set right(num value) => left = value - width;
+
   //获取bottom值
   num get bottom => top + height;
+
   //设置bottom值，同时top也发生变化
   set bottom(num value) => top = value - height;
 }
