@@ -12,3 +12,7 @@ class MyLib{
 class Test{
   void test() => print('Test');
 }
+
+void hello() {
+  print('mylib2 : hello()函数');
+}

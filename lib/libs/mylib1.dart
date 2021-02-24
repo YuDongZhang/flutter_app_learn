@@ -16,3 +16,6 @@ class Test {
 test(){
 
 }
+void hello() {
+  print('mylib1 : hello()函数');
+}
