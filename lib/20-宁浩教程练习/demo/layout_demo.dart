@@ -6,12 +6,14 @@ class LayoutDemo extends StatelessWidget{
     return Container(
       child:  Column(
         // mainAxisAlignment: MainAxisAlignment.spaceBetween,//主轴
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,//交叉轴
         children: [
           SizedBox(
             width: 200.0,
             height: 300.0,
             child: Container(
+              // alignment: Alignment(0.0,-1),//矩形内部的点 , 可以来控制子部件的 位置
+              alignment: Alignment.topCenter,//矩形内部的点 , 可以来控制子部件的 位置
               decoration: BoxDecoration(
                 color: Color.fromRGBO(3, 54, 255, 1.0),
                 borderRadius: BorderRadius.circular(8.0)
