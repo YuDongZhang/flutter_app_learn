@@ -6,9 +6,10 @@ class LayoutDemo extends StatelessWidget{
     return Container(
       child:  Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,//主轴
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           IconBadge(Icons.pool),
-          IconBadge(Icons.beach_access),
+          IconBadge(Icons.beach_access,size: 60,),
           IconBadge(Icons.airport_shuttle),
         ],
       ),
