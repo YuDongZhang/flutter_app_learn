@@ -5,6 +5,7 @@ import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%
 import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/drawer-demo.dart';
 import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/layout_demo.dart';
 import 'demo/listview-demo.dart';
+import 'demo/view_demo.dart';
 import 'model/post.dart';
 
 void main() => runApp(App());
@@ -32,7 +33,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return DefaultTabController(
-        length: 3,
+        length: 4,
         child: Scaffold(
           //主页中的 scaffold
           appBar: AppBar(
@@ -66,6 +67,7 @@ class Home extends StatelessWidget {
                 Tab(icon: Icon(Icons.local_florist)),
                 Tab(icon: Icon(Icons.change_history)),
                 Tab(icon: Icon(Icons.directions_bike)),
+                Tab(icon: Icon(Icons.view_agenda)),
               ],
             ),
           ),
@@ -81,6 +83,7 @@ class Home extends StatelessWidget {
             ListViewDemo(),
             BasicDemo(),
             LayoutDemo(),
+            ViewDemo(),
           ]),
           drawer: DrawerDemo(),
           bottomNavigationBar: BottomNavigationBarDemo(),
