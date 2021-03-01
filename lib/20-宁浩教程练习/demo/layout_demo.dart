@@ -5,12 +5,32 @@ class LayoutDemo extends StatelessWidget{
   Widget build(BuildContext context) {
     return Container(
       child:  Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,//主轴
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,//主轴
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          IconBadge(Icons.pool),
-          IconBadge(Icons.beach_access,size: 60,),
-          IconBadge(Icons.airport_shuttle),
+          SizedBox(
+            width: 200.0,
+            height: 300.0,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(3, 54, 255, 1.0),
+                borderRadius: BorderRadius.circular(8.0)
+              ),
+              child: Icon(Icons.ac_unit,color: Colors.white,size: 32,),
+            ),
+          ),
+          SizedBox(height: 32,),
+          SizedBox(
+            width: 100.0,
+            height: 100.0,
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Color.fromRGBO(3, 54, 255, 1.0),
+                  borderRadius: BorderRadius.circular(8.0)
+              ),
+              child: Icon(Icons.ac_unit,color: Colors.white,size: 32,),
+            ),
+          ),
         ],
       ),
     );
