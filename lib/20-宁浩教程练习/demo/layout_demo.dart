@@ -5,11 +5,27 @@ class LayoutDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,//主轴
-        crossAxisAlignment: CrossAxisAlignment.center, //交叉轴
+        mainAxisAlignment: MainAxisAlignment.center,//主轴
+        // crossAxisAlignment: CrossAxisAlignment.center, //交叉轴
         children: [
-          AspectRatioDemo()
+          ConstrainedBoxDemo()
         ],
+      ),
+    );
+  }
+}
+
+/// 对于内部部件显示 ,子部件 最大和最小
+class ConstrainedBoxDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: BoxConstraints(//限制
+        minHeight: 200.0,
+        maxWidth: 200.0,
+      ),
+      child: Container(
+        color: Color.fromRGBO(3, 54, 255, 1.0),
       ),
     );
   }
