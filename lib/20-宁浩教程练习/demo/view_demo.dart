@@ -26,6 +26,11 @@ class PageViewDemo extends StatelessWidget {
       //   viewportFraction: 0.85,
       // ),
       onPageChanged: (currentPage)=> debugPrint('Page : $currentPage'),//可以在控制台打印当前的页面
+      controller: PageController(
+        initialPage: 1,//默认滚动到 第二 个页面
+        keepPage: false,//是否记住了 , 滚动到那个页面
+        viewportFraction: 0.85,//页面占用 可视图的 比例
+      ),
       children: <Widget>[
         Container(
           color: Colors.brown[900],
