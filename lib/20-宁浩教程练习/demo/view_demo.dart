@@ -25,6 +25,7 @@ class PageViewDemo extends StatelessWidget {
       //   keepPage: false,
       //   viewportFraction: 0.85,
       // ),
+      onPageChanged: (currentPage)=> debugPrint('Page : $currentPage'),//可以在控制台打印当前的页面
       children: <Widget>[
         Container(
           color: Colors.brown[900],
