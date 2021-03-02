@@ -14,17 +14,10 @@ class ViewDemo extends StatelessWidget{
 class PageViewDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return PageView(
-      // pageSnapping: false,
-      // reverse: true,
-      // scrollDirection: Axis.vertical,
-      // onPageChanged: (currentPage) => debugPrint('Page: $currentPage'),
-      // controller: PageController(
-      //   initialPage: 1,
-      //   keepPage: false,
-      //   viewportFraction: 0.85,
-      // ),
+      pageSnapping: false,//页面的粘性 , 拖到一半不到会退回去
+      reverse: false,//倒置 , 页面的顺序颠倒
+      scrollDirection: Axis.vertical,//滚动的方向
       onPageChanged: (currentPage)=> debugPrint('Page : $currentPage'),//可以在控制台打印当前的页面
       controller: PageController(
         initialPage: 1,//默认滚动到 第二 个页面
