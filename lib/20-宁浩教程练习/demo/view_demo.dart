@@ -4,7 +4,33 @@ import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%
 class ViewDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GridViewCountDemo();
+    return GridViewBuilderDemo();
+  }
+}
+
+class GridViewBuilderDemo extends StatelessWidget {
+  Widget _gridItemBuilder(BuildContext context, int index) {
+    return Container(
+      child: Image.network(
+          posts[index].imageUrl,
+          fit: BoxFit.cover
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      padding: EdgeInsets.all(8.0),//添加了一个内边距
+      itemCount: posts.length,
+      itemBuilder: _gridItemBuilder,
+      gridDelegate:  SliverGridDelegateWithMaxCrossAxisExtent(//网格间距的设置 ///SliverGridDelegateWithFixedCrossAxisCount
+        // crossAxisCount: 3, //有两种方式来设计
+        maxCrossAxisExtent: 150.0,
+        crossAxisSpacing: 8.0,
+        mainAxisSpacing: 8.0,
+      ),
+    );
   }
 }
 
