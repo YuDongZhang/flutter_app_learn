@@ -4,7 +4,76 @@ import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%
 class ViewDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return PageViewBuilderDemo();
+    return GridViewCountDemo();
+  }
+}
+
+class GridViewCountDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GridView.count(
+      crossAxisCount: 3,
+      crossAxisSpacing: 16.0,//间隔
+      mainAxisSpacing: 16.0,//竖向的间隔
+      children: [
+        Container(
+          color: Colors.grey[100],
+          alignment: Alignment(0.0, 0.0),
+          child: Text(
+            'item',
+            style: TextStyle(fontSize: 18.0, color: Colors.grey),
+          ),
+        ),
+        Container(
+          color: Colors.grey[100],
+          alignment: Alignment(0.0, 0.0),
+          child: Text(
+            'item',
+            style: TextStyle(fontSize: 18.0, color: Colors.grey),
+          ),
+        ),
+        Container(
+          color: Colors.grey[100],
+          alignment: Alignment(0.0, 0.0),
+          child: Text(
+            'item',
+            style: TextStyle(fontSize: 18.0, color: Colors.grey),
+          ),
+        ),
+        Container(
+          color: Colors.grey[100],
+          alignment: Alignment(0.0, 0.0),
+          child: Text(
+            'item',
+            style: TextStyle(fontSize: 18.0, color: Colors.grey),
+          ),
+        ),
+        Container(
+          color: Colors.grey[100],
+          alignment: Alignment(0.0, 0.0),
+          child: Text(
+            'item',
+            style: TextStyle(fontSize: 18.0, color: Colors.grey),
+          ),
+        ),
+        Container(
+          color: Colors.grey[100],
+          alignment: Alignment(0.0, 0.0),
+          child: Text(
+            'item',
+            style: TextStyle(fontSize: 18.0, color: Colors.grey),
+          ),
+        ),
+        Container(
+          color: Colors.grey[100],
+          alignment: Alignment(0.0, 0.0),
+          child: Text(
+            'item',
+            style: TextStyle(fontSize: 18.0, color: Colors.grey),
+          ),
+        ),
+      ],
+    );
   }
 }
 
@@ -29,7 +98,9 @@ class PageViewBuilderDemo extends StatelessWidget {
                   posts[index].title,
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                Text(posts[index].author,)
+                Text(
+                  posts[index].author,
+                )
               ],
             )),
       ],
