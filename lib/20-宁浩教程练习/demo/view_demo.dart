@@ -8,6 +8,32 @@ class ViewDemo extends StatelessWidget {
   }
 }
 
+class GridViewExtenDemo extends StatelessWidget {
+
+  List<Widget> _buildTiles(int length) {
+    return List.generate(length, (int index) {
+      return Container(
+        color: Colors.grey[300],
+        alignment: Alignment(0.0, 0.0),
+        child: Text('Item $index',
+            style: TextStyle(fontSize: 18.0, color: Colors.grey)),
+      );
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return GridView.extent(
+      maxCrossAxisExtent: 200.0,//项目最大的宽度
+
+      crossAxisSpacing: 16.0,//间隔
+      mainAxisSpacing: 16.0,//竖向的间隔
+      children: _buildTiles(100),
+
+    );
+  }
+}
+
+
 class GridViewCountDemo extends StatelessWidget {
 
   List<Widget> _buildTiles(int length) {
