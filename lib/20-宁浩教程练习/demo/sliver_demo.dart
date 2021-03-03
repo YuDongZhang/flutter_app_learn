@@ -15,7 +15,21 @@ class SliverDemo extends StatelessWidget {
             title: Text('老张'),
             // pinned: true,//标题不会一起滚动
             floating: true,//向下拉动的时候回出来
-
+            expandedHeight: 178.0,//伸展高度
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                'Ninghao Flutter'.toUpperCase(),
+                style: TextStyle(
+                  fontSize: 15.0,//最小尺寸
+                  letterSpacing: 3.0, //最大尺寸
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              background: Image.network(//背景
+                'https://resources.ninghao.net/images/overkill.png',
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
           SliverSafeArea(
             sliver: SliverPadding(
