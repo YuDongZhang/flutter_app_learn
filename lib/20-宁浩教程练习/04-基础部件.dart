@@ -24,7 +24,8 @@ class App extends StatelessWidget {
       routes: {
         //对应要显示的 就是 weidgtbuilder , 接收的是上面的context
         /// 值里面 前面的前面的 '/' 表示就是 根路由 , 就是上面的home , 如果不用 可以定义
-        '/':(context)=>NavigatorDemo(),
+        // '/':(context)=>NavigatorDemo(),
+        '/':(context)=>Home(),
         '/about':(context)=>PageNav(title:'你好')
       },
       theme: ThemeData(
