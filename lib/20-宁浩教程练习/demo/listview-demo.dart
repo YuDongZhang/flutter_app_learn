@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/model/post.dart';
 
+import 'post_show.dart';
+
 class ListViewDemo extends StatelessWidget {
   Widget _listItemBuilder(BuildContext context, int index) {
     // return Text(posts[index].title);
@@ -30,7 +32,9 @@ class ListViewDemo extends StatelessWidget {
                   splashColor: Colors.white.withOpacity(0.3),
                   highlightColor: Colors.white.withOpacity(0.1),//高亮
                   onTap: () {
-                    debugPrint('tap');
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => PostShow(post: posts[index]))
+                    );
                   }),
             ),
           ),
