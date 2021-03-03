@@ -11,6 +11,12 @@ class SliverDemo extends StatelessWidget {
         slivers: [
           // SliverPadding(padding: EdgeInsets.all(8.0),sliver: SliverGridDemo()),
           // SliverSafeArea(sliver: SliverGridDemo())//显示在安全区域 , 就是避免被刘海挡住
+          SliverAppBar(
+            title: Text('老张'),
+            // pinned: true,//标题不会一起滚动
+            floating: true,//向下拉动的时候回出来
+
+          ),
           SliverSafeArea(
             sliver: SliverPadding(
               padding: EdgeInsets.all(8.0),
