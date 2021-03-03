@@ -15,12 +15,13 @@ class NavigatorDemo extends StatelessWidget {
             FlatButton(
               child: Text('About'),
               onPressed: () {
-                // Navigator.pushNamed(context, '/about');
+                ///直接用名字就可以推 , 通过定义好的 routes
+                Navigator.pushNamed(context, '/about');
                 ///route即时路由(就是一个视图) , stack 放路由的堆 , navigator 操作路由
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => Page(
-                          title: 'about',
-                        )));
+                // Navigator.of(context).push(MaterialPageRoute(
+                //     builder: (BuildContext context) => PageNav(
+                //           title: 'about',
+                //         )));
               },
             ),
           ],
@@ -30,10 +31,10 @@ class NavigatorDemo extends StatelessWidget {
   }
 }
 
-class Page extends StatelessWidget {
+class PageNav extends StatelessWidget {
   final String title;
 
-  Page({this.title});
+  PageNav({this.title});
 
   @override
   Widget build(BuildContext context) {

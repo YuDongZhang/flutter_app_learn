@@ -19,6 +19,13 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false, //关闭debug 条幅
       home: NavigatorDemo(),
+
+      ///事先定义好一些带名字的路由 , 然后直接 push 名字
+      ///routes 值是 map
+      routes: {
+        //对应要显示的 就是 weidgtbuilder , 接收的是上面的context
+        '/about':(context)=>PageNav(title:'你好')
+      },
       theme: ThemeData(
           //主题颜色修改 , 不要这一行是 蓝色
           primarySwatch: Colors.yellow,
@@ -28,9 +35,6 @@ class App extends StatelessWidget {
     );
   }
 }
-
-
-
 
 /// home 组件
 class Home extends StatelessWidget {
