@@ -4,6 +4,7 @@ import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%
 import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/bottom_navigation_bar_demo.dart';
 import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/drawer-demo.dart';
 import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/layout_demo.dart';
+import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/sliver_demo.dart';
 import 'demo/listview-demo.dart';
 import 'demo/view_demo.dart';
 import 'model/post.dart';
@@ -16,7 +17,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false, //关闭debug 条幅
-      home: Home(),
+      home: SliverDemo(),
       theme: ThemeData(
           //主题颜色修改 , 不要这一行是 蓝色
           primarySwatch: Colors.yellow,
@@ -26,6 +27,9 @@ class App extends StatelessWidget {
     );
   }
 }
+
+
+
 
 /// home 组件
 class Home extends StatelessWidget {
