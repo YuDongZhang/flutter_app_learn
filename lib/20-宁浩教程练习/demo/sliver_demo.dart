@@ -44,7 +44,8 @@ class SliverListDemo extends StatelessWidget {
                       aspectRatio: 16 / 9, //图片的比例
                       child: Image.network(
                         posts[index].imageUrl,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.contain,
+
                       ),
                     ),
                     Positioned(
