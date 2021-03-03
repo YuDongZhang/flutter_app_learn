@@ -7,8 +7,8 @@ class SliverDemo extends StatelessWidget{
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverPadding(padding: EdgeInsets.all(8.0)),
-          SliverGridDemo()
+          SliverPadding(padding: EdgeInsets.all(8.0),sliver: SliverGridDemo()),
+
         ],
       ),
     );
