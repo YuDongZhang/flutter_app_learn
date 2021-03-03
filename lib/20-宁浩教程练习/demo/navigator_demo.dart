@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NavigatorDemo extends StatelessWidget {
@@ -16,7 +15,12 @@ class NavigatorDemo extends StatelessWidget {
             FlatButton(
               child: Text('About'),
               onPressed: () {
-                Navigator.pushNamed(context, '/about');
+                // Navigator.pushNamed(context, '/about');
+                ///route即时路由(就是一个视图) , stack 放路由的堆 , navigator 操作路由
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => Page(
+                          title: 'about',
+                        )));
               },
             ),
           ],
