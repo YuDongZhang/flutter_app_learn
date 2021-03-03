@@ -7,8 +7,12 @@ class SliverDemo extends StatelessWidget{
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverPadding(padding: EdgeInsets.all(8.0),sliver: SliverGridDemo()),
-
+          // SliverPadding(padding: EdgeInsets.all(8.0),sliver: SliverGridDemo()),
+          // SliverSafeArea(sliver: SliverGridDemo())//显示在安全区域 , 就是避免被刘海挡住
+          SliverSafeArea(sliver: SliverPadding(
+            padding: EdgeInsets.all(8.0),
+            sliver: SliverGridDemo(),
+          ),)
         ],
       ),
     );
