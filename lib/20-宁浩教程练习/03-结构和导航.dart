@@ -18,7 +18,8 @@ class App extends StatelessWidget {
         //主题颜色修改 , 不要这一行是 蓝色
           primarySwatch: Colors.yellow,
           highlightColor: Color.fromRGBO(255, 255, 255, 0.5), //设置主题的高亮颜色
-          splashColor: Colors.white70 //设置 水波纹
+          splashColor: Colors.white70, //设置 水波纹
+        accentColor: Color.fromRGBO(3, 54, 255, 1.0),
       ),
     );
   }
