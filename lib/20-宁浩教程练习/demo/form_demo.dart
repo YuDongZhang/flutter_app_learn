@@ -14,12 +14,50 @@ class FormDemo extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextFieldDemo(),
+              RegisterForm(),
             ],
           ),
         ),
       ),
     );
+  }
+}
+
+class RegisterForm extends StatefulWidget {
+  RegisterFormState createState() => RegisterFormState();
+}
+
+class RegisterFormState extends State<RegisterForm> {
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+        child: Column(
+      children: [
+        TextFormField(
+          decoration: InputDecoration(
+            labelText: 'UserName',
+          ),
+        ),
+        TextFormField(
+          obscureText: true, //输入之后变成保密性
+          decoration: InputDecoration(
+            labelText: 'PassWord',
+          ),
+        ),
+        SizedBox(height: 32.0,),
+        Container(
+          width: double.infinity,
+          child: RaisedButton(
+            color: Theme.of(context).accentColor,
+            child: Text('Register', style: TextStyle(color: Colors.white)),
+            elevation: 0.0,
+            onPressed: (){
+              debugPrint('点击了');
+            },
+          ),
+        ),
+      ],
+    ));
   }
 }
 
@@ -29,7 +67,7 @@ class TextFieldDemo extends StatefulWidget {
 }
 
 class TextFieldDemoState extends State<TextFieldDemo> {
-  final textEditingController = TextEditingController();//一样是监听 没有效果
+  final textEditingController = TextEditingController(); //一样是监听 没有效果
 
   @override
   void dispose() {
