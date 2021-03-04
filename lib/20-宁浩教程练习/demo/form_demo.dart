@@ -28,36 +28,55 @@ class RegisterForm extends StatefulWidget {
 }
 
 class RegisterFormState extends State<RegisterForm> {
+  final registerFormKey = GlobalKey<FormState>(); //添加一个 globalkey  , 交给表单
+  String username, password;
+  bool autovalidate = false;
+
+  void submitRegisterForm() {
+    registerFormKey.currentState.save();//save( )意思就是保存表单的值
+    // debugPrint('username$username+ password$password');
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
+        key: registerFormKey,
         child: Column(
-      children: [
-        TextFormField(
-          decoration: InputDecoration(
-            labelText: 'UserName',
-          ),
-        ),
-        TextFormField(
-          obscureText: true, //输入之后变成保密性
-          decoration: InputDecoration(
-            labelText: 'PassWord',
-          ),
-        ),
-        SizedBox(height: 32.0,),
-        Container(
-          width: double.infinity,
-          child: RaisedButton(
-            color: Theme.of(context).accentColor,
-            child: Text('Register', style: TextStyle(color: Colors.white)),
-            elevation: 0.0,
-            onPressed: (){
-              debugPrint('点击了');
-            },
-          ),
-        ),
-      ],
-    ));
+          children: [
+            TextFormField(
+              decoration: InputDecoration(
+                labelText: 'UserName',
+              ),
+              onSaved: (value) {//这个相当于把值给他
+                //保存表单会执行这个回调
+                username = value;
+              },
+            ),
+            TextFormField(
+              obscureText: true, //输入之后变成保密性
+              decoration: InputDecoration(
+                labelText: 'PassWord',
+              ),
+              onSaved: (value) {
+                //保存表单会执行这个回调
+                password = value;
+              },
+            ),
+            SizedBox(
+              height: 32.0,
+            ),
+            Container(
+              width: double.infinity,
+              child: RaisedButton(
+                color: Theme.of(context).accentColor,
+                child: Text('Register', style: TextStyle(color: Colors.white)),
+                elevation: 0.0,
+                onPressed: submitRegisterForm,
+              ),
+            ),
+          ],
+        ));
   }
 }
 
