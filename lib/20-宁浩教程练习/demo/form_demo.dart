@@ -33,6 +33,14 @@ class TextFieldDemoState extends State<TextFieldDemo> {
   Widget build(BuildContext context) {
 
     return TextField(
+      ///负责输入的监听
+      onChanged: (value){
+        debugPrint(value);
+      },
+      ///点击确定按钮时候的值
+      onSubmitted: (value){
+        debugPrint('submit + $value');
+      },
       decoration: InputDecoration(
         icon: Icon(Icons.subject),//文本框左边的小图标
         labelText: '我是输入框',
