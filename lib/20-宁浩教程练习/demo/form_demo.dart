@@ -33,9 +33,19 @@ class RegisterFormState extends State<RegisterForm> {
   bool autovalidate = false;
 
   void submitRegisterForm() {
-    registerFormKey.currentState.save(); //save( )意思就是保存表单的值
+    // registerFormKey.currentState.save(); //save( )意思就是保存表单的值
     // debugPrint('username$username+ password$password');
-    registerFormKey..currentState.validate();
+    registerFormKey.currentState.validate(); //表单的验证
+    ///表单的自动验证 , 当你输入错误后 , 再输入错误信息,会自动消失
+    if (registerFormKey.currentState.validate()) {
+      registerFormKey.currentState.save();
+      debugPrint('username: $username');
+      debugPrint('password: $password');
+    } else {
+      setState(() {
+        autovalidate = true;
+      });
+    }
   }
 
   String validateUsername(value) {
@@ -71,9 +81,11 @@ class RegisterFormState extends State<RegisterForm> {
                 username = value;
               },
               validator: validateUsername, //表单的验证
+              autovalidate: autovalidate,
             ),
             TextFormField(
-              obscureText: true, //输入之后变成保密性
+              obscureText: true,
+              //输入之后变成保密性
               decoration: InputDecoration(
                 labelText: 'PassWord',
                 helperText: '',
@@ -83,6 +95,7 @@ class RegisterFormState extends State<RegisterForm> {
                 password = value;
               },
               validator: validatePassword,
+              autovalidate: autovalidate,
             ),
             SizedBox(
               height: 32.0,
