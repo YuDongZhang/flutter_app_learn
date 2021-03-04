@@ -29,20 +29,39 @@ class TextFieldDemo extends StatefulWidget {
 }
 
 class TextFieldDemoState extends State<TextFieldDemo> {
+  final textEditingController = TextEditingController();//一样是监听 没有效果
+
+  @override
+  void dispose() {
+    textEditingController.dispose();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    // textEditingController.text = 'hi';
+    textEditingController.addListener(() {
+      debugPrint('input: ${textEditingController.text}');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-
     return TextField(
+      controller: textEditingController,
+
       ///负责输入的监听
-      onChanged: (value){
-        debugPrint(value);
-      },
+      // onChanged: (value){
+      //   debugPrint(value);
+      // },
       ///点击确定按钮时候的值
-      onSubmitted: (value){
+      onSubmitted: (value) {
         debugPrint('submit + $value');
       },
       decoration: InputDecoration(
-        icon: Icon(Icons.subject),//文本框左边的小图标
+        icon: Icon(Icons.subject),
+        //文本框左边的小图标
         labelText: '我是输入框',
         hintText: '点击我可以输入',
         // border: InputBorder.none,//取消了下划线
