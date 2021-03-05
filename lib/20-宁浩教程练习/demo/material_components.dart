@@ -11,8 +11,62 @@ class MaterialComponents extends StatelessWidget {
       body: ListView(
         children: [
           ListItem(
+              title: 'Button', page: ButtonDemo()),
+          ListItem(
               title: 'FloatingActionButton', page: FloatingActionButtonDemo()),
         ],
+      ),
+    );
+  }
+}
+
+class ButtonDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('button'),
+        elevation: 0.0,
+      ),
+      body:Container(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _WidgetDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('button'),
+        elevation: 0.0,
+      ),
+      body:Container(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
@@ -40,16 +94,19 @@ class FloatingActionButtonDemo extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('MaterialComponents'),
+        title: Text('FloatingActionButtonDemo'),
         elevation: 0.0,
       ),
       floatingActionButton: _floatingActionButton,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,//按钮的位置
-      bottomNavigationBar: BottomAppBar(//底部工具栏
+      //_floatingActionButtonExtended //替换测试
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      //按钮的位置
+      bottomNavigationBar: BottomAppBar(
+        //底部工具栏
         child: Container(
           height: 80.0,
         ),
-        shape: CircularNotchedRectangle(),//底部工具栏的缺口 , 你可以看效果
+        shape: CircularNotchedRectangle(), //底部工具栏的缺口 , 你可以看效果
       ),
     );
   }
