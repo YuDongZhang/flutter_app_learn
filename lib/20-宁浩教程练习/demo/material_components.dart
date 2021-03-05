@@ -22,6 +22,7 @@ class MaterialComponents extends StatelessWidget {
 class ButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     //带文字的按钮
     final Widget flatButtonDemo = Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -81,6 +82,44 @@ class ButtonDemo extends StatelessWidget {
       ],
     );
 
+    final Widget outlineButtonDemo = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Theme(
+          data: Theme.of(context).copyWith(
+            buttonColor: Theme.of(context).accentColor,
+            buttonTheme: ButtonThemeData(
+              textTheme: ButtonTextTheme.primary,
+              // shape: BeveledRectangleBorder(
+              //   borderRadius: BorderRadius.circular(5.0),
+              // ),
+              shape: StadiumBorder(),
+            ),
+          ),
+          child: OutlineButton(
+            child: Text('Button'),
+            onPressed: () {},
+            splashColor: Colors.grey[100],//溅墨效果
+            borderSide: BorderSide(//描边的颜色
+              color: Colors.black,
+            ),
+            // color: Theme.of(context).accentColor,
+            textColor: Colors.black,
+            highlightedBorderColor: Colors.grey,//高亮
+            // textTheme: ButtonTextTheme.primary,
+          ),
+        ),
+        SizedBox(width: 16.0,),
+        OutlineButton.icon(
+          icon: Icon(Icons.add),//小图标
+          label: Text('Button'),
+          onPressed: () {},
+          splashColor: Colors.grey,
+          textColor: Theme.of(context).accentColor,
+        ),
+      ],
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text('button'),
@@ -93,6 +132,7 @@ class ButtonDemo extends StatelessWidget {
           children: [
             flatButtonDemo,
             raisedButtonDemo,
+            outlineButtonDemo,
           ],
         ),
       ),
