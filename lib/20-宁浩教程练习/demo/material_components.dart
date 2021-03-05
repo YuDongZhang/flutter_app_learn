@@ -120,6 +120,26 @@ class ButtonDemo extends StatelessWidget {
       ],
     );
 
+    final Widget fixedWidthButton = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          width: 130.0,
+          child: OutlineButton(
+            child: Text('Button'),
+            onPressed: () {},
+            splashColor: Colors.grey[100],
+            borderSide: BorderSide(
+              color: Colors.black,
+            ),
+            textColor: Colors.black,
+            highlightedBorderColor: Colors.grey,
+          ),
+        ),
+      ],
+    );
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text('button'),
@@ -133,6 +153,7 @@ class ButtonDemo extends StatelessWidget {
             flatButtonDemo,
             raisedButtonDemo,
             outlineButtonDemo,
+            fixedWidthButton,
           ],
         ),
       ),
