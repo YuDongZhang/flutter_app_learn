@@ -22,7 +22,6 @@ class MaterialComponents extends StatelessWidget {
 class ButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     //带文字的按钮
     final Widget flatButtonDemo = Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -48,14 +47,16 @@ class ButtonDemo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Theme(
-          data: Theme.of(context).copyWith(//覆盖一些主题
+          data: Theme.of(context).copyWith(
+            //覆盖一些主题
             buttonColor: Theme.of(context).accentColor,
-            buttonTheme: ButtonThemeData(//定义按钮主题
+            buttonTheme: ButtonThemeData(
+              //定义按钮主题
               textTheme: ButtonTextTheme.primary,
               // shape: BeveledRectangleBorder(//按钮的形状
               //   borderRadius: BorderRadius.circular(5.0),
               // ),
-              shape: StadiumBorder(),//按钮形状
+              shape: StadiumBorder(), //按钮形状
             ),
           ),
           child: RaisedButton(
@@ -99,19 +100,24 @@ class ButtonDemo extends StatelessWidget {
           child: OutlineButton(
             child: Text('Button'),
             onPressed: () {},
-            splashColor: Colors.grey[100],//溅墨效果
-            borderSide: BorderSide(//描边的颜色
+            splashColor: Colors.grey[100],
+            //溅墨效果
+            borderSide: BorderSide(
+              //描边的颜色
               color: Colors.black,
             ),
             // color: Theme.of(context).accentColor,
             textColor: Colors.black,
-            highlightedBorderColor: Colors.grey,//高亮
+            highlightedBorderColor: Colors.grey, //高亮
             // textTheme: ButtonTextTheme.primary,
           ),
         ),
-        SizedBox(width: 16.0,),
+        SizedBox(
+          width: 16.0,
+        ),
         OutlineButton.icon(
-          icon: Icon(Icons.add),//小图标
+          icon: Icon(Icons.add),
+          //小图标
           label: Text('Button'),
           onPressed: () {},
           splashColor: Colors.grey,
@@ -139,6 +145,40 @@ class ButtonDemo extends StatelessWidget {
       ],
     );
 
+    final Widget expandedButton = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Expanded(
+          //占满宽度
+          child: OutlineButton(
+            child: Text('Button'),
+            onPressed: () {},
+            splashColor: Colors.grey[100],
+            borderSide: BorderSide(
+              color: Colors.black,
+            ),
+            textColor: Colors.black,
+            highlightedBorderColor: Colors.grey,
+          ),
+        ),
+        SizedBox(
+          width: 16.0,
+        ),
+        Expanded(
+          flex: 2, //比例 这个有点像那个 weight
+          child: OutlineButton(
+            child: Text('Button'),
+            onPressed: () {},
+            splashColor: Colors.grey[100],
+            borderSide: BorderSide(
+              color: Colors.black,
+            ),
+            textColor: Colors.black,
+            highlightedBorderColor: Colors.grey,
+          ),
+        ),
+      ],
+    );
 
     return Scaffold(
       appBar: AppBar(
