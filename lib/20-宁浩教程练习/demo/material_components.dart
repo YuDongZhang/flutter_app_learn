@@ -21,7 +21,6 @@ class MaterialComponents extends StatelessWidget {
 class FloatingActionButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     final Widget _floatingActionButton = FloatingActionButton(
       onPressed: () {},
       child: Icon(Icons.add),
@@ -42,10 +41,16 @@ class FloatingActionButtonDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('MaterialComponents'),
-
         elevation: 0.0,
       ),
       floatingActionButton: _floatingActionButton,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,//按钮的位置
+      bottomNavigationBar: BottomAppBar(//底部工具栏
+        child: Container(
+          height: 80.0,
+        ),
+        shape: CircularNotchedRectangle(),//底部工具栏的缺口 , 你可以看效果
+      ),
     );
   }
 }
@@ -60,7 +65,6 @@ class ListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(title),
-
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(builder: (context) => page),
