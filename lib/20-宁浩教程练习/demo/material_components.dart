@@ -10,8 +10,7 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          ListItem(
-              title: 'Button', page: ButtonDemo()),
+          ListItem(title: 'Button', page: ButtonDemo()),
           ListItem(
               title: 'FloatingActionButton', page: FloatingActionButtonDemo()),
         ],
@@ -21,18 +20,16 @@ class MaterialComponents extends StatelessWidget {
 }
 
 class ButtonDemo extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
     //带文字的按钮
     final Widget flatButtonDemo = Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         FlatButton(
           child: Text('Button'),
-          onPressed: () {},//如果为null 就是禁用
-          splashColor: Colors.grey,//溅墨效果
+          onPressed: () {}, //如果为null 就是禁用
+          splashColor: Colors.grey, //溅墨效果
           textColor: Theme.of(context).accentColor,
         ),
         FlatButton.icon(
@@ -50,14 +47,14 @@ class ButtonDemo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Theme(
-          data: Theme.of(context).copyWith(
+          data: Theme.of(context).copyWith(//覆盖一些主题
             buttonColor: Theme.of(context).accentColor,
-            buttonTheme: ButtonThemeData(
+            buttonTheme: ButtonThemeData(//定义按钮主题
               textTheme: ButtonTextTheme.primary,
-              // shape: BeveledRectangleBorder(
+              // shape: BeveledRectangleBorder(//按钮的形状
               //   borderRadius: BorderRadius.circular(5.0),
               // ),
-              shape: StadiumBorder(),
+              shape: StadiumBorder(),//按钮形状
             ),
           ),
           child: RaisedButton(
@@ -65,12 +62,14 @@ class ButtonDemo extends StatelessWidget {
             onPressed: () {},
             splashColor: Colors.grey,
             elevation: 0.0,
-            // color: Theme.of(context).accentColor,
-            // textColor: Colors.white,
-            // textTheme: ButtonTextTheme.primary,
+            // color: Theme.of(context).accentColor,//按钮的背景色
+            // textColor: Colors.white,//按钮文字颜色
+            // textTheme: ButtonTextTheme.primary,//文字颜色 和上面效果一样
           ),
         ),
-        SizedBox(width: 16.0,),
+        SizedBox(
+          width: 16.0,
+        ),
         RaisedButton.icon(
           icon: Icon(Icons.add),
           label: Text('Button'),
@@ -82,13 +81,12 @@ class ButtonDemo extends StatelessWidget {
       ],
     );
 
-
     return Scaffold(
       appBar: AppBar(
         title: Text('button'),
         elevation: 0.0,
       ),
-      body:Container(
+      body: Container(
         padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -110,16 +108,14 @@ class _WidgetDemo extends StatelessWidget {
         title: Text('button'),
         elevation: 0.0,
       ),
-      body:Container(
+      body: Container(
         padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-
-              ],
+              children: [],
             )
           ],
         ),
