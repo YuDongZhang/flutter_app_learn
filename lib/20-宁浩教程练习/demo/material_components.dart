@@ -13,9 +13,9 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          ListItem(title: 'PopupMenuButton', page: PopupMenuButton()),
           ListItem(title: 'Button', page: ButtonDemo()),
-          ListItem(
-              title: 'FloatingActionButton', page: FloatingActionButtonDemo()),
+          ListItem(title: 'FloatingActionButton', page: FloatingActionButtonDemo()),
         ],
       ),
     );
