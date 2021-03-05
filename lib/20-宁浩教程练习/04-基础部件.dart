@@ -8,6 +8,7 @@ import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%
 import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/navigator_demo.dart';
 import 'demo/listview-demo.dart';
 import 'demo/view_demo.dart';
+import 'demo/material_components.dart';
 
 void main() => runApp(App());
 
@@ -19,7 +20,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false, //关闭debug 条幅
       // home: NavigatorDemo(),
       ///定义的初始的路由
-      initialRoute: '/form',
+      initialRoute: '/mdc',
       ///事先定义好一些带名字的路由 , 然后直接 push 名字
       ///routes 值是 map
       routes: {
@@ -29,6 +30,7 @@ class App extends StatelessWidget {
         '/':(context)=>Home(),
         '/about':(context)=>PageNav(title:'你好'),
         '/form':(context)=>FormDemo(),
+        '/mdc':(context)=>MaterialComponents(),
       },
       theme: ThemeData(
           //主题颜色修改 , 不要这一行是 蓝色
