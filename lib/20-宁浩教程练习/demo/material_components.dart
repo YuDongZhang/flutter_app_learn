@@ -180,6 +180,44 @@ class ButtonDemo extends StatelessWidget {
       ],
     );
 
+    // 按钮容器 ButtonBar：一组带边距的横排显示按钮
+    final Widget buttonBarDemo = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Theme(
+          data: Theme.of(context).copyWith(
+            buttonTheme: ButtonThemeData(//边距会根据这个来改变
+              padding: EdgeInsets.symmetric(horizontal: 32.0),
+            ),
+          ),
+          child: ButtonBar(
+            children: <Widget>[
+              OutlineButton(
+                child: Text('Button'),
+                onPressed: () {},
+                splashColor: Colors.grey[100],
+                borderSide: BorderSide(
+                  color: Colors.black,
+                ),
+                textColor: Colors.black,
+                highlightedBorderColor: Colors.grey,
+              ),
+              OutlineButton(
+                child: Text('Button'),
+                onPressed: () {},
+                splashColor: Colors.grey[100],
+                borderSide: BorderSide(
+                  color: Colors.black,
+                ),
+                textColor: Colors.black,
+                highlightedBorderColor: Colors.grey,
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text('button'),
@@ -194,6 +232,8 @@ class ButtonDemo extends StatelessWidget {
             raisedButtonDemo,
             outlineButtonDemo,
             fixedWidthButton,
+            expandedButton,
+            buttonBarDemo,
           ],
         ),
       ),
