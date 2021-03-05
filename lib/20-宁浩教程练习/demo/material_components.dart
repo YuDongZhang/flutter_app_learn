@@ -25,13 +25,14 @@ class ButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    //带文字的按钮
     final Widget flatButtonDemo = Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         FlatButton(
           child: Text('Button'),
-          onPressed: () {},
-          splashColor: Colors.grey,
+          onPressed: () {},//如果为null 就是禁用
+          splashColor: Colors.grey,//溅墨效果
           textColor: Theme.of(context).accentColor,
         ),
         FlatButton.icon(
@@ -44,6 +45,44 @@ class ButtonDemo extends StatelessWidget {
       ],
     );
 
+    //背景颜色和阴影效果
+    final Widget raisedButtonDemo = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Theme(
+          data: Theme.of(context).copyWith(
+            buttonColor: Theme.of(context).accentColor,
+            buttonTheme: ButtonThemeData(
+              textTheme: ButtonTextTheme.primary,
+              // shape: BeveledRectangleBorder(
+              //   borderRadius: BorderRadius.circular(5.0),
+              // ),
+              shape: StadiumBorder(),
+            ),
+          ),
+          child: RaisedButton(
+            child: Text('Button'),
+            onPressed: () {},
+            splashColor: Colors.grey,
+            elevation: 0.0,
+            // color: Theme.of(context).accentColor,
+            // textColor: Colors.white,
+            // textTheme: ButtonTextTheme.primary,
+          ),
+        ),
+        SizedBox(width: 16.0,),
+        RaisedButton.icon(
+          icon: Icon(Icons.add),
+          label: Text('Button'),
+          onPressed: () {},
+          splashColor: Colors.grey,
+          elevation: 12.0,
+          textColor: Theme.of(context).accentColor,
+        ),
+      ],
+    );
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text('button'),
@@ -55,6 +94,7 @@ class ButtonDemo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             flatButtonDemo,
+            raisedButtonDemo,
           ],
         ),
       ),
