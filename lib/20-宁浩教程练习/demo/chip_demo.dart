@@ -141,6 +141,21 @@ class _ChipDemoState extends State<ChipDemo> {
                   width: double.infinity,
                   child: Text('ChoiceChip: $_choice'),
                 ),
+                Wrap(
+                  spacing: 8.0,
+                  children: _tags.map((tag) {
+                    return ChoiceChip(
+                      label: Text(tag),
+                      selectedColor: Colors.black,
+                      selected: _choice == tag, //如果是就是选中状态
+                      onSelected: (value) {
+                        setState(() {
+                          _choice = tag;
+                        });
+                      },
+                    );
+                  }).toList(),
+                ),
               ],
             ),
           ],
