@@ -58,16 +58,30 @@ class _ChipDemoState extends State<ChipDemo> {
                 Chip(
                   label: Text('City'),
                   onDeleted: () {},
+                  //执行的方法
                   deleteIcon: Icon(Icons.delete),
                   deleteIconColor: Colors.redAccent,
-                  deleteButtonTooltipMessage: 'Remove this tag',
+                  deleteButtonTooltipMessage: 'Remove this tag', //长按小图标出现 提示
                 ),
                 Divider(
                   color: Colors.grey,
                   height: 32.0,
                   // indent: 32.0,//左边缩进
                 ),
-
+                Wrap(
+                  spacing: 8.0,
+                  children: _tags.map((tag) {
+                    return Chip(
+                      label: Text(tag),
+                      onDeleted: () {
+                        setState(() {
+                          //应该就是刷新的意思
+                          _tags.remove(tag);
+                        });
+                      },
+                    );
+                  }).toList(), //转成列表
+                ),
               ],
             ),
           ],
@@ -76,7 +90,7 @@ class _ChipDemoState extends State<ChipDemo> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.restore),
         onPressed: () {
-          setState(() {
+          setState(() { //在这里set之后之前删除的又会出现
             _tags = [
               'Apple',
               'Banana',
