@@ -1,24 +1,33 @@
 import 'package:flutter/material.dart';
 
-class StateManagementDemo extends StatelessWidget {
-  int count = 0;
+class StateManagementDemo extends StatefulWidget {
+  @override
+  _StateManagementDemoState createState() =>_StateManagementDemoState();
 
-  @override //架构再把这个小部件插入到树里面的时候 ,会调用 build 方法
+}
+
+class _StateManagementDemoState extends State<StateManagementDemo> {
+  int _count = 0;
+  @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text('StateManagementDemo'),
         elevation: 0,
       ),body: Center(
-      child: Chip(label: Text('$count')),
+      child: Chip(label: Text('$_count')),
     ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: (){
-          count += 1;
+        onPressed: (){ //发生变化要放到 setstate
+          setState(() { //新的状态进行重建
+            _count += 1;
+          });
         },
       ),
     );
   }
+
 }
 
