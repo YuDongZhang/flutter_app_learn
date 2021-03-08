@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
 import '../model/post.dart';
 
+//数据源
 class PostDataSource extends DataTableSource {
   final List<Post> _posts = posts;
   int _selectedCount = 0;
 
   @override
-  int get rowCount => _posts.length;
+  int get rowCount => _posts.length; //数量
 
   @override
-  bool get isRowCountApproximate => false;
+  bool get isRowCountApproximate => false; //是否确定行的数量
 
   @override
-  int get selectedRowCount => _selectedCount;
+  int get selectedRowCount => _selectedCount; //选中行数
 
   @override
   DataRow getRow(int index) {
     final Post post = _posts[index];
 
-    return DataRow.byIndex(
+    return DataRow.byIndex( //返回的是每一行具体的类容
       index: index,
       cells: <DataCell>[
         DataCell(Text(post.title)),
@@ -46,6 +47,7 @@ class PostDataSource extends DataTableSource {
   }
 }
 
+
 class PaginatedDataTableDemo extends StatefulWidget {
   @override
   _PaginatedDataTableDemoState createState() => _PaginatedDataTableDemoState();
@@ -61,7 +63,7 @@ class _PaginatedDataTableDemoState extends State<PaginatedDataTableDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('PaginatedDataTableDemo'),
+          title: Text('DataTableDemo'),
           elevation: 0.0,
         ),
         body: Container(
@@ -71,23 +73,26 @@ class _PaginatedDataTableDemoState extends State<PaginatedDataTableDemo> {
               PaginatedDataTable(
                 header: Text('Posts'),
                 rowsPerPage: 5,
+                //每一页的行数
                 source: _postsDataSource,
                 sortColumnIndex: _sortColumnIndex,
+                //排序的索引号
                 sortAscending: _sortAscending,
-                // onSelectAll: (bool value) {},
+                //sortAscending true 升序排列 , false 降序
+                // onSelectAll: (bool value) {},全选的状态 , 默认带全选功能
                 columns: [
+                  //数据表格的栏目
                   DataColumn(
-                    label: Text('Title'),
-                    onSort: (int columnIndex, bool ascending) {
-                      _postsDataSource._sort(
-                          (post) => post.title.length, ascending);
-
-                      setState(() {
-                        _sortColumnIndex = columnIndex;
-                        _sortAscending = ascending;
-                      });
-                    },
-                  ),
+                      label: Text('Title'), //container 包含设置宽度 , 好像都不能自己设置宽度
+                      onSort: (int columnIndex, bool ascending) {
+                        //方法里面接收参数
+                        _postsDataSource._sort((post) => post.title.length, ascending);
+                        //index当前要排序的索引号 ,ascending 是否升序排列
+                        setState(() {
+                          _sortColumnIndex = columnIndex;
+                          _sortAscending = ascending;
+                        });
+                      }),
                   DataColumn(
                     label: Text('Author'),
                   ),
