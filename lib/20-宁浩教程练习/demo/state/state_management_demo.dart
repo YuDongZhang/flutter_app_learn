@@ -8,6 +8,14 @@ class StateManagementDemo extends StatefulWidget {
 class _StateManagementDemoState extends State<StateManagementDemo> {
   int _count = 0;
 
+  void _increaseCount() {
+    //发生变化要放到 setstate
+    setState(() {
+      //新的状态进行重建
+      _count += 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -16,16 +24,10 @@ class _StateManagementDemoState extends State<StateManagementDemo> {
         title: Text('StateManagementDemo'),
         elevation: 0,
       ),
-      body: Counter(_count),
+      body: Counter(_count, _increaseCount),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {
-          //发生变化要放到 setstate
-          setState(() {
-            //新的状态进行重建
-            _count += 1;
-          });
-        },
+        onPressed: _increaseCount,
       ),
     );
   }
@@ -33,13 +35,17 @@ class _StateManagementDemoState extends State<StateManagementDemo> {
 
 class Counter extends StatelessWidget {
   final int count;
+  final VoidCallback increaseCount; //回调
 
-  Counter(this.count);
+  Counter(this.count, this.increaseCount);
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Chip(label: Text('$count')),
+      child: ActionChip(
+        label: Text('$count'),
+        onPressed:increaseCount,//执行的是一个回调
+      ),
     );
   }
 }
