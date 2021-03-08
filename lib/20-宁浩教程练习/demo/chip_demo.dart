@@ -62,6 +62,12 @@ class _ChipDemoState extends State<ChipDemo> {
                   deleteIconColor: Colors.redAccent,
                   deleteButtonTooltipMessage: 'Remove this tag',
                 ),
+                Divider(
+                  color: Colors.grey,
+                  height: 32.0,
+                  // indent: 32.0,//左边缩进
+                ),
+
               ],
             ),
           ],
