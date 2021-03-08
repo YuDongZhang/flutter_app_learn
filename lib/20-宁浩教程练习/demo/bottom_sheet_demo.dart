@@ -44,7 +44,7 @@ class _BottomSheetDemoState extends State<BottomSheetDemo> {
             children: <Widget>[
               ListTile(
                 title: Text('Option A'),
-                onTap: () {
+                onTap: () { //点击会调用这个方法
                   Navigator.pop(context, 'A');//这个 a 就是返回去的值
                 },
               ),
@@ -66,6 +66,7 @@ class _BottomSheetDemoState extends State<BottomSheetDemo> {
       }
     );
 
+    //选择时候查看打印的值
     print(option);
   }
 
