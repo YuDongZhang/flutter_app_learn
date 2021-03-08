@@ -82,6 +82,28 @@ class _ChipDemoState extends State<ChipDemo> {
                     );
                   }).toList(), //转成列表
                 ),
+                Divider(
+                  color: Colors.grey,
+                  height: 32.0,
+                  // indent: 32.0,
+                ),
+                Container(
+                  width: double.infinity,
+                  child: Text('ActionChip: $_action'),
+                ),
+                Wrap(
+                  spacing: 8.0,
+                  children: _tags.map((tag) {
+                    return ActionChip(
+                      label: Text(tag),
+                      onPressed: () {
+                        setState(() {
+                          _action = tag;
+                        });
+                      },
+                    );
+                  }).toList(),
+                ),
               ],
             ),
           ],
