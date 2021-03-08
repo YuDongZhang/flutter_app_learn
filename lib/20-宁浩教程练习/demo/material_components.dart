@@ -10,6 +10,7 @@ import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%
 import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/switch_demo.dart';
 
 import 'Button_Demo.dart';
+import 'bottom_sheet_demo.dart';
 import 'floating_action_button_demo.dart';
 
 class MaterialComponents extends StatelessWidget {
@@ -22,6 +23,7 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          ListItem(title: 'BottomSheetDemo', page: BottomSheetDemo()),
           ListItem(title: 'AlertDialogDemo', page: AlertDialogDemo()),
           ListItem(title: 'SimpleDialogDemo', page: SimpleDialogDemo()),
           ListItem(title: 'datetime', page: DateTimeDemo()),
