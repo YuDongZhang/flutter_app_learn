@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class StateManagementDemo extends StatefulWidget {
   @override
-  _StateManagementDemoState createState() =>_StateManagementDemoState();
-
+  _StateManagementDemoState createState() => _StateManagementDemoState();
 }
 
 class _StateManagementDemoState extends State<StateManagementDemo> {
   int _count = 0;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -15,19 +15,31 @@ class _StateManagementDemoState extends State<StateManagementDemo> {
       appBar: AppBar(
         title: Text('StateManagementDemo'),
         elevation: 0,
-      ),body: Center(
-      child: Chip(label: Text('$_count')),
-    ),
+      ),
+      body: Counter(_count),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: (){ //发生变化要放到 setstate
-          setState(() { //新的状态进行重建
+        onPressed: () {
+          //发生变化要放到 setstate
+          setState(() {
+            //新的状态进行重建
             _count += 1;
           });
         },
       ),
     );
   }
-
 }
 
+class Counter extends StatelessWidget {
+  final int count;
+
+  Counter(this.count);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Chip(label: Text('$count')),
+    );
+  }
+}
