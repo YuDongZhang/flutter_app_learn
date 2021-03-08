@@ -20,7 +20,18 @@ class _CheckboxDemoState extends State<CheckboxDemo> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-
+            CheckboxListTile(
+              value: _checkboxItemA,
+              onChanged: (value) {//点按复选框的处理的方法
+                setState(() {
+                  _checkboxItemA = value;
+                });
+              },
+              title: Text('Checkbox Item A'),
+              subtitle: Text('Description'),
+              secondary: Icon(Icons.bookmark),
+              selected: _checkboxItemA,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
