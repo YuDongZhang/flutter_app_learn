@@ -22,8 +22,11 @@ class _DataTableDemoState extends State<DataTableDemo> {
           child: ListView(
             children: <Widget>[
               DataTable(
-                sortColumnIndex: _sortColumnIndex, //排序的索引号
-                sortAscending: _sortAscending, //true 升序排列 , false 降序
+                sortColumnIndex: _sortColumnIndex,
+                //排序的索引号
+                sortAscending: _sortAscending,
+                //sortAscending true 升序排列 , false 降序
+                // onSelectAll: (bool value) {},全选的状态 , 默认带全选功能
                 columns: [
                   //数据表格的栏目
                   DataColumn(
@@ -56,17 +59,28 @@ class _DataTableDemoState extends State<DataTableDemo> {
                 ],
                 //rows 每一行
                 rows: posts.map((post) {
-                  return DataRow(cells: [
-                    DataCell(
-                      Text(post.title), //post 即是 map后面的 post
-                    ),
-                    DataCell(
-                      Text(post.author),
-                    ),
-                    DataCell(
-                      Image.network(post.imageUrl),
-                    ),
-                  ]);
+                  return DataRow(
+                      selected: post.selected, //行的选择的状态
+                      onSelectChanged: (bool value) {
+                        //onSelectChanged 当前行选择状态 , 被选true , 取消 false
+                        setState(() {
+                          if (post.selected != value) {
+                            //如果不等于value 就让等于value
+                            post.selected = value;
+                          }
+                        });
+                      },
+                      cells: [
+                        DataCell(
+                          Text(post.title), //post 即是 map后面的 post
+                        ),
+                        DataCell(
+                          Text(post.author),
+                        ),
+                        DataCell(
+                          Image.network(post.imageUrl),
+                        ),
+                      ]);
                 }).toList(),
               ),
             ],
