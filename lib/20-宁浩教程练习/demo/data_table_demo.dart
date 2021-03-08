@@ -22,33 +22,29 @@ class _DataTableDemoState extends State<DataTableDemo> {
                 columns: [
                   //数据表格的栏目
                   DataColumn(
-                    label: Text('Title'),
+                    label: Text('Title'), //container 包含设置宽度 , 好像都不能自己设置宽度
                   ),
                   DataColumn(
                     label: Text('Author'),
                   ),
+                  DataColumn(
+                    label: Text('Image'),
+                  ),
                 ],
                 //rows 每一行
-                rows: [
-                  DataRow(
-                    cells: [
-                      DataCell(Text('hello')),
-                      DataCell(Text('老张')),
-                    ],
-                  ),
-                  DataRow(
-                    cells: [
-                      DataCell(Text('ola')),
-                      DataCell(Text('老张')),
-                    ],
-                  ),
-                  DataRow(
-                    cells: [
-                      DataCell(Text('你好')),
-                      DataCell(Text('老张')),
-                    ],
-                  ),
-                ],
+                rows: posts.map((post) {
+                  return DataRow(cells: [
+                    DataCell(
+                      Text(post.title), //post 即是 map后面的 post
+                    ),
+                    DataCell(
+                      Text(post.author),
+                    ),
+                    DataCell(
+                      Image.network(post.imageUrl),
+                    ),
+                  ]);
+                }).toList(),
               ),
             ],
           ),
