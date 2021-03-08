@@ -29,8 +29,9 @@ class _ChipDemoState extends State<ChipDemo> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Wrap(
-              spacing: 8.0,
-              runSpacing: 8.0,
+              //包装之后里面的 chip 是可以换行
+              spacing: 8.0, //小部件之间的间隔
+              runSpacing: 8.0, //行与行之间的间隔
               children: <Widget>[
                 Chip(
                   label: Text('Life'),
@@ -50,7 +51,8 @@ class _ChipDemoState extends State<ChipDemo> {
                   label: Text('Wanghao'),
                   avatar: CircleAvatar(
                     backgroundImage: NetworkImage(
-                        'https://resources.ninghao.net/images/wanghao.jpg'),
+                        'https://resources.ninghao.net/images/wanghao.jpg'
+                    ),
                   ),
                 ),
                 Chip(
@@ -59,11 +61,6 @@ class _ChipDemoState extends State<ChipDemo> {
                   deleteIcon: Icon(Icons.delete),
                   deleteIconColor: Colors.redAccent,
                   deleteButtonTooltipMessage: 'Remove this tag',
-                ),
-                Divider(
-                  color: Colors.grey,
-                  height: 32.0,
-                  // indent: 32.0,
                 ),
               ],
             ),
