@@ -36,11 +36,16 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
 
     //类似于 streamcontrol
     // PublishSubject<String> _subject = PublishSubject<String>();
-    BehaviorSubject<String> _subject =
-        BehaviorSubject<String>(); //把最后一次添加的数据作为新的数据交给新来的监听
+    // BehaviorSubject<String> _subject =
+    //     BehaviorSubject<String>(); //把最后一次添加的数据作为新的数据交给新来的监听
+
+    //数据全部交给监听器
+    ReplaySubject<String> _subject =
+        ReplaySubject<String>(maxSize: 2); //maxsize 最大接收的数量,也可以没有,第一个收不到
 
     _subject.add('hello');
     _subject.add('hola');
+    _subject.add('hi');
 
     //监听 stream 或者observable ,如果stream需要有数据要写一个方法 如下 .  这个相当于订阅
     _subject.listen((data) => print('listen 1: $data'));
