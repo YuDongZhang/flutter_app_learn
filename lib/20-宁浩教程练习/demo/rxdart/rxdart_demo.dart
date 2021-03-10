@@ -28,7 +28,8 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
     _textFieldSubject = PublishSubject<String>();
     _textFieldSubject
         // .map((item) => 'item: $item')//数据转换 , 处理
-        .where((item) => item.length > 9)//只有满足条件的数据才被通过
+        // .where((item) => item.length > 9)//只有满足条件的数据才被通过
+        .debounce(Duration(milliseconds: 500))//用户输入就会打印, 用户一直输入会浪费资源,做时间限制, 用户输入后停止
         .listen((data) => print(data));
 
     // Observable<String> _observable =
