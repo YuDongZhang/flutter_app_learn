@@ -25,15 +25,25 @@ class StreamDemoHome extends StatefulWidget {
 
 class _StreamDemoHomeState extends State<StreamDemoHome> {
   StreamSubscription _streamDemoSubscription;
+  StreamController<String> _streamDemo;
+
+  //移除小部件会执行这个方法
+  @override
+  void dispose() {
+    _streamDemo.close(); //把不需要的stream 关掉
+    super.dispose();
+  }
 
   @override
   void initState() {
     super.initState();
     print('create stream');
-    Stream<String> _streamDemo = Stream.fromFuture(fetchData());
+    // Stream<String> _streamDemo = Stream.fromFuture(fetchData());
+    _streamDemo = StreamController<String>();
+
     //有数据 ondata , 错误 onerror ,完成 onDone
     _streamDemoSubscription =
-        _streamDemo.listen(onData, onError: onError, onDone: onDone);
+        _streamDemo.stream.listen(onData, onError: onError, onDone: onDone);
     print('end');
   }
 
@@ -64,9 +74,17 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
     _streamDemoSubscription.cancel();
   }
 
+  //可以点击 暂停 , 重启 , 添加 , 测试
+  void _addDataToStream() async {
+    print('Add data to stream.');
+
+    String data = await fetchData();
+    _streamDemo.add(data);
+  }
+
   Future<String> fetchData() async {
-    await Future.delayed(Duration(seconds: 3)); //模拟网络请求
-    throw 'something happened'; //这里抛出错误的时候 , 就会在 onerroe 方法中执行
+    await Future.delayed(Duration(seconds: 5)); //模拟网络请求
+    // throw 'something happened'; //这里抛出错误的时候 , 就会在 onerroe 方法中执行
     return 'hello'; //要使用这个的数据 , 就要监听 stream
   }
 
@@ -77,6 +95,10 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            FlatButton(
+              onPressed: _addDataToStream,
+              child: Text('Add'),
+            ),
             FlatButton(onPressed: _pauseStream, child: Text('Pause')),
             FlatButton(onPressed: _resumeStream, child: Text('Resume')),
             FlatButton(onPressed: _cancelStream, child: Text('Cancel')),
