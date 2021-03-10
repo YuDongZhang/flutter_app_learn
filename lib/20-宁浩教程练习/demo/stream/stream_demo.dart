@@ -106,7 +106,14 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   Widget build(BuildContext context) {
     return Container(
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text(_data),
+        // Text(_data),
+        StreamBuilder(
+            //会根据steam的值 , 自动构建
+            stream: _streamDemo.stream,
+            initialData: '---',
+            builder: (context, snapshot) {
+              return Text('${snapshot.data}');
+            }),
         Row(
           children: [
             FlatButton(
