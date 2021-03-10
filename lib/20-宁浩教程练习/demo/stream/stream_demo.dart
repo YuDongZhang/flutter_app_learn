@@ -26,7 +26,7 @@ class StreamDemoHome extends StatefulWidget {
 class _StreamDemoHomeState extends State<StreamDemoHome> {
   StreamSubscription _streamDemoSubscription;
   StreamController<String> _streamDemo;
-  StreamSink _sinkDemo;// sink 水槽, 水池的意思
+  StreamSink _sinkDemo; // sink 水槽, 水池的意思
 
   //移除小部件会执行这个方法
   @override
@@ -40,12 +40,15 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
     super.initState();
     print('create stream');
     // Stream<String> _streamDemo = Stream.fromFuture(fetchData());
-    _streamDemo = StreamController<String>();
+    _streamDemo = StreamController.broadcast(); //这种形式可以多次订阅
     _sinkDemo = _streamDemo.sink;
 
     //有数据 ondata , 错误 onerror ,完成 onDone
     _streamDemoSubscription =
         _streamDemo.stream.listen(onData, onError: onError, onDone: onDone);
+    _streamDemoSubscription =
+        _streamDemo.stream.listen(onData, onError: onError, onDone: onDone);
+
     print('end');
   }
 
@@ -59,6 +62,10 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
 
   void onData(String data) {
     print('$data');
+  }
+
+  void onDataTwo(String data) {
+    print('onDataTwo: $data');
   }
 
   void _pauseStream() {
