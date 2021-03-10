@@ -28,8 +28,18 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
     super.initState();
     print('create stream');
     Stream<String> _streamDemo = Stream.fromFuture(fetchData());
-    _streamDemo.listen(onData);
+    //有数据 ondata , 错误 onerror ,完成 onDone
+    _streamDemo.listen(onData,onError: onError,onDone: onDone);
     print('end');
+
+  }
+
+  void onDone() {
+    print('onDone');
+  }
+
+  void onError(error) {
+    print('$error');
   }
 
   void  onData(String data) {
@@ -38,6 +48,7 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
 
   Future<String> fetchData() async{
     await Future.delayed(Duration(seconds: 3));//模拟网络请求
+    throw 'something happened'; //这里抛出错误的时候 , 就会在 onerroe 方法中执行
     return 'hello';//要使用这个的数据 , 就要监听 stream
   }
 
@@ -45,10 +56,6 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   Widget build(BuildContext context) {
     return Container();
   }
-
-
-
-
 
 
 }
