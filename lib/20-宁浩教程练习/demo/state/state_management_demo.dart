@@ -1,44 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
 
-class StateManagementDemo extends StatefulWidget {
-  @override
-  _StateManagementDemoState createState() => _StateManagementDemoState();
-}
-
-class _StateManagementDemoState extends State<StateManagementDemo> {
-  int _count = 0;
-
-  void _increaseCount() {
-    //发生变化要放到 setstate
-    setState(() {
-      //新的状态进行重建
-      _count += 1;
-    });
-  }
-
+//用了 model 之后StatefulWidget可以改造成为 stateless
+class StateManagementDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return CounterProvider(
-      //这样在这个部件下的小部件都可以得到 这个两个参数
-      count: _count,
-      increaseCount: _increaseCount,
+    return ScopedModel(
+      model: CounterModel(), //这样下面的小部件可以设置到model 里面的东西
       child: Scaffold(
         appBar: AppBar(
           title: Text('StateManagementDemo'),
           elevation: 0,
         ),
         body: CounterWrapper(),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: _increaseCount,
-        ),
+        floatingActionButton: ScopedModelDescendant<CounterModel>(
+            rebuildOnChange: false, //默认在 model改变的时候会重建 , 不过在本视图中不用重建
+            builder: (context, _, model) => FloatingActionButton(
+                  child: Icon(Icons.add),
+                  onPressed: model.increaseCount,
+                )),
       ),
     );
   }
 }
 
 class CounterWrapper extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -48,19 +34,14 @@ class CounterWrapper extends StatelessWidget {
 }
 
 class Counter extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-    final int count = CounterProvider
-        .of(context)
-        .count;
-    final VoidCallback increaseCount = CounterProvider
-        .of(context)
-        .increaseCount;
-    return ActionChip(
-      label: Text('$count'),
-      onPressed: increaseCount, //执行的是一个回调
-    );
+    return ScopedModelDescendant<CounterModel>(
+        builder: (context, _, model) =>
+            ActionChip(
+              label: Text('${model.count}'),
+              onPressed: model.increaseCount, //执行的是一个回调
+            ));
   }
 }
 
@@ -80,5 +61,16 @@ class CounterProvider extends InheritedWidget {
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) {
     return true;
+  }
+}
+
+class CounterModel extends Model {
+  int _count = 0;
+
+  int get count => _count;
+
+  void increaseCount() {
+    _count += 1;
+    notifyListeners(); //重建 , 监听的小部件会被重建
   }
 }
