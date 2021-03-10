@@ -35,13 +35,16 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
     // _observable.listen(print);
 
     //类似于 streamcontrol
-    PublishSubject<String> _subject = PublishSubject<String>();
+    // PublishSubject<String> _subject = PublishSubject<String>();
+    BehaviorSubject<String> _subject =
+        BehaviorSubject<String>(); //把最后一次添加的数据作为新的数据交给新来的监听
+
+    _subject.add('hello');
+    _subject.add('hola');
 
     //监听 stream 或者observable ,如果stream需要有数据要写一个方法 如下 .  这个相当于订阅
     _subject.listen((data) => print('listen 1: $data'));
-    _subject.add('hello');
     _subject.listen((data) => print('listen 2: ${data.toUpperCase()}'));
-    _subject.add('hola');
     _subject.close();
   }
 
