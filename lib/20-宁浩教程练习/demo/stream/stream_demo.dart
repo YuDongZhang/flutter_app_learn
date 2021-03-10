@@ -27,6 +27,7 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   StreamSubscription _streamDemoSubscription;
   StreamController<String> _streamDemo;
   StreamSink _sinkDemo; // sink 水槽, 水池的意思
+  String _data = '...';
 
   //移除小部件会执行这个方法
   @override
@@ -61,6 +62,9 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   }
 
   void onData(String data) {
+    setState(() {
+      _data = data;
+    });
     print('$data');
   }
 
@@ -101,9 +105,9 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Text(_data),
+        Row(
           children: [
             FlatButton(
               onPressed: _addDataToStream,
@@ -113,8 +117,8 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
             FlatButton(onPressed: _resumeStream, child: Text('Resume')),
             FlatButton(onPressed: _cancelStream, child: Text('Cancel')),
           ],
-        ),
-      ),
+        )
+      ]),
     );
   }
 }
