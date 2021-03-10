@@ -27,7 +27,8 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
     super.initState();
     _textFieldSubject = PublishSubject<String>();
     _textFieldSubject
-        .map((item) => 'item: $item')//数据转换 , 处理
+        // .map((item) => 'item: $item')//数据转换 , 处理
+        .where((item) => item.length > 9)//只有满足条件的数据才被通过
         .listen((data) => print(data));
 
     // Observable<String> _observable =
