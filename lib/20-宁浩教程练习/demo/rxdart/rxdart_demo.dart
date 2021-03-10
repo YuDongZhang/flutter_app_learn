@@ -25,7 +25,12 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
     super.initState();
 
     Observable<String> _observable =
-        Observable(Stream.fromIterable(['hello', '您好']));
+        // Observable(Stream.fromIterable(['hello', '您好']));//可迭代的数据
+        // Observable.fromFuture(Future.value('hello ~'));//返回一个 future
+        // Observable.fromIterable(['hello', '您好']);
+        // Observable.just('hello ~');
+        Observable.periodic(
+            Duration(seconds: 3), (x) => x.toString()); //指定时间间隔重复触发
 
     _observable.listen(print);
   }
