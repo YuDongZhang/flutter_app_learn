@@ -7,6 +7,7 @@ import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%
 import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/layout_demo.dart';
 import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/navigator_demo.dart';
 import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/stream/stream_demo.dart';
+import 'demo/bloc/bloc_demo.dart';
 import 'demo/listview-demo.dart';
 import 'demo/rxdart/rxdart_demo.dart';
 import 'demo/state/state_management_demo.dart';
@@ -23,7 +24,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false, //关闭debug 条幅
       // home: NavigatorDemo(),
       ///定义的初始的路由
-      initialRoute: '/rxdart',
+      initialRoute: '/Bloc',
 
       ///事先定义好一些带名字的路由 , 然后直接 push 名字
       ///routes 值是 map
@@ -38,7 +39,7 @@ class App extends StatelessWidget {
         '/state_manage': (context) => StateManagementDemo(),
         '/stream': (context) => StreamDemo(),
         '/rxdart': (context) => RxDartDemo(),
-
+        '/Bloc': (context) => BlocDemo(),
       },
       theme: ThemeData(
           //主题颜色修改 , 不要这一行是 蓝色
