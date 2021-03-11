@@ -10,13 +10,15 @@ import 'counter_bloc_demo.dart';
 class BlocDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('BlocDemo'),
-        elevation: 0,
-      ),
-      body: CounterHome(),
-      floatingActionButton: CounterActionButton(),
-    );
+    return CounterProvider(
+        bloc: CounterBloc(), //下面的小部件 可以得到counterbloc 里面的东西
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text('BlocDemo'),
+            elevation: 0,
+          ),
+          body: CounterHome(),
+          floatingActionButton: CounterActionButton(),
+        ));
   }
 }
