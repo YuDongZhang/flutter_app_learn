@@ -29,7 +29,7 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
     animationDemoController = AnimationController(
       //初始的值
       value: 32.0,
-      lowerBound: 0.0,
+      lowerBound: 32.0,
       upperBound: 100.0,
       duration: Duration(milliseconds: 3000),
       //持续的时间
@@ -42,6 +42,10 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
       //输出每一帧 控制的值
       // print('$animationDemoController.value');
       setState(() {});
+    });
+
+    animationDemoController.addStatusListener((status) {
+      print(status);
     });
 
     //开始播放动画
@@ -57,10 +61,17 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: ActionChip(
-        label: Text('$animationDemoController.value'),
+      child: IconButton(
+        icon: Icon(Icons.favorite),
+        iconSize: animationDemoController.value,
         onPressed: () {
-          animationDemoController.forward();
+          switch (animationDemoController.status) {
+            case AnimationStatus.completed:
+              animationDemoController.reverse();
+              break;
+            default:
+              animationDemoController.forward();
+          }
         },
       ),
     );
