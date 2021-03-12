@@ -27,7 +27,12 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
     super.initState();
 
     animationDemoController = AnimationController(
-      duration: Duration(milliseconds: 1000), //持续的时间
+      //初始的值
+      value: 32.0,
+      lowerBound: 0.0,
+      upperBound: 100.0,
+      duration: Duration(milliseconds: 3000),
+      //持续的时间
       //防止屏幕的消耗不必要的资源
       vsync: this,
     );
@@ -35,11 +40,12 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
     //监听动画
     animationDemoController.addListener(() {
       //输出每一帧 控制的值
-      print('$animationDemoController.value');
+      // print('$animationDemoController.value');
+      setState(() {});
     });
 
     //开始播放动画
-    animationDemoController.forward();
+    // animationDemoController.forward();
   }
 
   @override
@@ -50,6 +56,13 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: ActionChip(
+        label: Text('$animationDemoController.value'),
+        onPressed: () {
+          animationDemoController.forward();
+        },
+      ),
+    );
   }
 }
