@@ -23,6 +23,7 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
   AnimationController animationDemoController;
   Animation animation;
   Animation animationColor;
+  CurvedAnimation curve;
 
   @override
   void initState() {
@@ -39,6 +40,9 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
       vsync: this,
     );
 
+    curve = CurvedAnimation(
+        parent: animationDemoController, curve: Curves.bounceInOut);
+
     //监听动画
     animationDemoController.addListener(() {
       //输出每一帧 控制的值
@@ -47,8 +51,8 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
     });
 
     animation = Tween(begin: 32.0, end: 100.0).animate(animationDemoController);
-    animationColor = ColorTween(begin: Colors.red, end: Colors.red[900])
-        .animate(animationDemoController);
+    animationColor =
+        ColorTween(begin: Colors.red, end: Colors.red[900]).animate(curve);
 
     //监听动画的状态 , 是否完成
     animationDemoController.addStatusListener((status) {
