@@ -25,9 +25,9 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
   @override
   void initState() {
     super.initState();
-    // fetchPost();
+    fetchPosts().then((value) => print(value));
 
-    final post = {
+    /* final post = {
       'title': 'hello',
       'description': 'nice to meet you.',
     };
@@ -46,14 +46,26 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
     print('title: ${postModel.title}, description: ${postModel.description}');
 
     //转json字符串
-    print('${json.encode(postModel)}');
+    print('${json.encode(postModel)}');*/
   }
 
-  void fetchPost() async {
+  Future<List<Post>> fetchPosts() async {
     final response =
         await http.get('https://resources.ninghao.net/demo/posts.json');
-    print('statusCode : ${response.statusCode}');
-    print('statusCode : ${response.body}');
+    // print('statusCode : ${response.statusCode}');
+    // print('statusCode : ${response.body}');
+    if (response.statusCode == 200) {
+      final responseBody = json.decode(response.body);
+      List<Post> posts = responseBody['posts']
+          //map处理返回的项目是post , 括号里面当前的是item
+          //会把map数据转成post数据 , 再tolist
+          .map<Post>((item) => Post.fromJson(item))
+          .toList();
+
+      return posts;
+    } else {
+      throw Exception('Failed to fetch posts.');
+    }
   }
 
   @override
@@ -63,20 +75,27 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
 }
 
 class Post {
+  final int id;
   final String title;
   final String description;
+  final String author;
+  final String imageUrl;
 
-  Post(
-    this.title,
-    this.description,
-  );
+  Post(this.id,
+      this.title,
+      this.description,
+      this.author,
+      this.imageUrl,);
 
   Post.fromJson(Map json)
-      : title = json['title'],
-        description = json['description'];
+      : id = json['id'],
+        title = json['title'],
+        description = json['description'],
+        author = json['author'],
+        imageUrl = json['imageUrl'];
 
   Map toJson() => {
-        'title': title,
-        'descritpion': description,
-      };
+    'title': title,
+    'descritpion': description,
+  };
 }
