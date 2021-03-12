@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -23,13 +25,29 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
   @override
   void initState() {
     super.initState();
-    fetchPost();
+    // fetchPost();
+
+    final post = {
+      'title': 'hello',
+      'description': 'nice to meet you.',
+    };
+    print(post['title']);
+    print(post['description']);
+
+    final postJson = json.encode(post);
+    print(postJson);
+
+    final postJsonConverted = json.decode(postJson);
+    print(postJsonConverted['title']);
+    print(postJsonConverted['description']);
+    print(postJsonConverted is Map);
   }
 
   void fetchPost() async {
     final response =
         await http.get('https://resources.ninghao.net/demo/posts.json');
     print('statusCode : ${response.statusCode}');
+    print('statusCode : ${response.body}');
   }
 
   @override
