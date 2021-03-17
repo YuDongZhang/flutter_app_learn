@@ -25,6 +25,10 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // locale: Locale('en','US'),//应用要使用本地化的设置
+      // localeResolutionCallback:(Locale locale,Iterable<Locale> supportedLocales){
+      //       //   return locale('en','US')
+      //       // } ,
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate, //Material组件国际化
         GlobalWidgetsLocalizations.delegate //文字的方向
