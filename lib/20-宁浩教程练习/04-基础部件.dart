@@ -29,7 +29,7 @@ class App extends StatelessWidget {
         GlobalMaterialLocalizations.delegate, //Material组件国际化
         GlobalWidgetsLocalizations.delegate //文字的方向
       ],
-      supportedLocales: [],
+      supportedLocales: [Locale('en', 'US'), Locale('zh', 'CN')],
       debugShowCheckedModeBanner: false,
       //关闭debug 条幅
       // home: NavigatorDemo(),
