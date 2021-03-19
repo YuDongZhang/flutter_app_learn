@@ -1,6 +1,28 @@
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class NinghaoDemoLocalizetions {
+import 'ninghao_demo_messages_all.dart';
+
+class NinghaoDemoLocalizations {
+  static NinghaoDemoLocalizations of(BuildContext context) {
+    return Localizations.of<NinghaoDemoLocalizations>(
+        context, NinghaoDemoLocalizations);
+  }
+
+  static Future<NinghaoDemoLocalizations> load(Locale locale) {
+    //判断本地的城市码是否为空
+    final String name =
+        locale.countryCode.isEmpty ? locale.languageCode : locale.toString();
+
+    final String localeName = Intl.canonicalizedLocale(name); //规范表示本地化的代号
+
+    return initializeMessages(localeName).then((bool _) {
+      //then处理的到的数据
+      Intl.defaultLocale = localeName;
+      return NinghaoDemoLocalizations();
+    });
+  }
+
   String get title =>
       Intl.message('hello', name: 'title', desc: 'demo localizations');
 
@@ -10,6 +32,27 @@ class NinghaoDemoLocalizetions {
         desc: 'greet someone',
         args: [name],
       );
+}
+
+class NinghaoDemoLocalizationsDelegate
+    extends LocalizationsDelegate<NinghaoDemoLocalizations> {
+  NinghaoDemoLocalizationsDelegate();
+
+  //load 会重建依赖这些小部件的资源
+  @override
+  Future<NinghaoDemoLocalizations> load(Locale locale) {
+    return NinghaoDemoLocalizations.load(locale);
+  }
+
+  @override
+  bool isSupported(Locale locale) {
+    return true;
+  }
+
+  @override
+  bool shouldReload(LocalizationsDelegate<NinghaoDemoLocalizations> old) {
+    return false;
+  }
 }
 
 //生成 arb文件

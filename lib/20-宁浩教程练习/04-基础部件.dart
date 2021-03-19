@@ -4,7 +4,7 @@ import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%
 import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/bottom_navigation_bar_demo.dart';
 import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/drawer-demo.dart';
 import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/form_demo.dart';
-import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/i18n/map/ninghao_demo_localizations.dart';
+// import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/i18n/map/ninghao_demo_localizations.dart';
 import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/layout_demo.dart';
 import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/navigator_demo.dart';
 import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/stream/stream_demo.dart';
@@ -13,6 +13,7 @@ import 'demo/animation/animation_demo.dart';
 import 'demo/bloc/bloc_demo.dart';
 import 'demo/http/http_demo.dart';
 import 'demo/i18n/i18n_demo.dart';
+import 'demo/i18n/intl/ninghao_demo_localizations.dart';
 import 'demo/listview-demo.dart';
 import 'demo/rxdart/rxdart_demo.dart';
 import 'demo/state/state_management_demo.dart';
@@ -26,13 +27,14 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // locale: Locale('en','US'),//应用要使用本地化的设置
+      locale: Locale('en', 'US'),
+      //应用要使用本地化的设置
       // localeResolutionCallback:(Locale locale,Iterable<Locale> supportedLocales){
       //       //   return locale('en','US')
       //       // } ,
-      locale: Locale('zh', 'CN'),
+      // locale: Locale('zh', 'CN'),
       localizationsDelegates: [
-        NinghaoDemoLocalizationsDelegate(),
+        NinghaoDemoLocalizationsDelegate(), //看上面更换了导入文件
         GlobalMaterialLocalizations.delegate, //Material组件国际化
         GlobalWidgetsLocalizations.delegate //文字的方向
       ],
