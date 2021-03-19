@@ -15,3 +15,6 @@ class NinghaoDemoLocalizetions {
 //生成 arb文件
 //C:\AndroidStudioProjects\flutter_app_learn>flutter pub pub run intl_translation:extract_to_arb --output-dir=20-宁浩
 // 教程练习/demo/i18n/intl  20-宁浩教程练习/demo/i18n/intl/ninghao_demo_localizations.dart
+
+//更具 arb生成dart
+// flutter pub pub run intl_translation:generate_from_arb --generated-file-prefix=ninghao_demo_ --output-dir-lib/demo/i18n/intl/--no-use-deferred-loading lib/demo/i18n/intl/ninghao_demo_localizations.dart lib/demo/i18n/intl/intl_*.arb
