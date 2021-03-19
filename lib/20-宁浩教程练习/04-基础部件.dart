@@ -30,6 +30,7 @@ class App extends StatelessWidget {
       // localeResolutionCallback:(Locale locale,Iterable<Locale> supportedLocales){
       //       //   return locale('en','US')
       //       // } ,
+      locale: Locale('zh', 'CN'),
       localizationsDelegates: [
         NinghaoDemoLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate, //Material组件国际化
@@ -61,11 +62,11 @@ class App extends StatelessWidget {
         '/I18nDemo': (context) => I18nDemo(),
       },
       theme: ThemeData(
-          //主题颜色修改 , 不要这一行是 蓝色
+        //主题颜色修改 , 不要这一行是 蓝色
           primarySwatch: Colors.yellow,
           highlightColor: Color.fromRGBO(255, 255, 255, 0.5), //设置主题的高亮颜色
           splashColor: Colors.white70 //设置 水波纹
-          ),
+      ),
     );
   }
 }
