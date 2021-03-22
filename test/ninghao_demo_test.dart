@@ -16,5 +16,15 @@ void main() {
     await tester.pumpWidget(MaterialApp(
       home: TestDemo(),
     ));
+
+    final labelText = find.text('hello');
+
+    //表示没有找到小部件
+    // expect(labelText, findsNothing);
+
+    //找到一个小部件
+    // expect(labelText, findsOneWidget);
+
+    expect(labelText, findsNWidgets(1));
   });
 }
