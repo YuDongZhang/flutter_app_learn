@@ -26,5 +26,17 @@ void main() {
     // expect(labelText, findsOneWidget);
 
     expect(labelText, findsNWidgets(1));
+
+    //找到一个包含0的控件
+    final actionChipLabelText = find.text('0');
+    expect(actionChipLabelText, findsOneWidget);
+
+    final actionChip = find.byType(ActionChip);
+    await tester.tap(actionChip); //点击
+    await tester.pump(); //重建小部件
+
+    //按了之后显示的值应该是 1
+    final actionChipLabelTextAfter = find.text('1');
+    expect(actionChipLabelTextAfter, findsOneWidget);
   });
 }
