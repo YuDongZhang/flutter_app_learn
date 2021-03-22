@@ -27,7 +27,11 @@ class _TestDemoHomeState extends State<TestDemoHome> {
       children: [
         Chip(label: Text('hello')),
         ActionChip(
-          label: Text('$count'),
+          key: Key('actionChip'),
+          label: Text(
+            '$count',
+            key: Key('actionChipLabelText'),
+          ),
           onPressed: () {
             setState(() {
               count++;
