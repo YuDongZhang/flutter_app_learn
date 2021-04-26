@@ -43,7 +43,7 @@ class App extends StatelessWidget {
       //关闭debug 条幅
       // home: NavigatorDemo(),
       ///定义的初始的路由
-      initialRoute: '/I18nDemo',
+      initialRoute: '/mdc',
 
       ///事先定义好一些带名字的路由 , 然后直接 push 名字
       ///routes 值是 map
