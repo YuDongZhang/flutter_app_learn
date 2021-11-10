@@ -17,7 +17,7 @@ void main() {
   data2 = 'dongnao';
   data2 = 123;
 
-  print([data, data1, data2]);
+  print('var  dynamic  Object 变量声明: ' + [data, data1, data2].toString());
 
   //var声明一个初始化的变量，变量的类型不能再改变
   var variable1 =
@@ -42,7 +42,6 @@ void main() {
 //Object:动态任意类型，编译阶段检查检查类型
 //区别：
 //唯一区别 var 如果有初始值，类型被锁定
-
 
   /// ---------------------------------默认值--------------------------------
   //没有初始化的变量默认值都是null。一切皆对象，对象的默认值是null
@@ -111,5 +110,4 @@ void main() {
   const validConstString =
       '$aConstNum, $aConstBool, $aConstString, $aConstNull';
   print(validConstString); //使用计算结果为null或数字，字符串或布尔值的编译时常量的插值表达式
-
 }

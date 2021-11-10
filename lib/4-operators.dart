@@ -3,12 +3,12 @@ main() {
   /// ---------------------------------后缀操作符 ?.--------------------------------
   //  条件成员访问 和 . 类似，但是左边的操作对象不能为 null，例如 foo?.bar 如果 foo 为 null 则返回 null，否则返回 bar 成员
   String a;
-  print(a?.length);
+  print('点 . 操作符' + a?.length.toString());
 
   /// ---------------------------------取商操作符 ~/--------------------------------
   //  被除数 ÷ 除数 = 商 ... 余数，A ~/ B = C，这个C就是商。相当于Java里的 /
-  print(2 / 3);
-  print(2 ~/ 3);
+  print('除法:/ ' + (2 / 3).toString());
+  print('取余:~ ' + (2 ~/ 3).toString());
 
   /// ---------------------------------类型判定操作符--------------------------------
   //类型判定操作符：as、is、is!在运行时判定对象类型
@@ -17,7 +17,7 @@ main() {
   num dNum = 1.0;
   int i = iNum as int;
   double d = dNum as double;
-  print([i, d]);
+  print('类型转换 as :' + [i, d].toString());
 
 //  String s = iNum as String;
 
@@ -52,7 +52,6 @@ main() {
     ..writeln('damon');
 
   //重写操作符
-
 }
 
 class Parent {}

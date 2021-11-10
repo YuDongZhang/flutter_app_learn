@@ -12,17 +12,56 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
+      home: RowToRowPage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class RowToRowPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('hhhh'),
+      ),
+      body: Container(
+        color: Colors.orangeAccent,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    color: Colors.green,
+                    child: Text('绿Container'),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                          color: Colors.purple, child: Text('紫Container')),
+                      Container(color: Colors.red, child: Text('红Container')),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              color: Colors.blue,
+              child: Text('蓝Container'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ColumnToColumnPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,17 +74,20 @@ class MyHomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Container(
-                    color: Colors.red,
-                    child: Text('hhhh'),
-                  ),
-                  Container(
-                    child: Text('heheh'),
-                  )
-                ],
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    Container(
+                      color: Colors.red,
+                      child: Text('hhhh'),
+                    ),
+                    Container(
+                      child: Text('heheh'),
+                    )
+                  ],
+                ),
               ),
               Container(
                 height: 100,
@@ -54,6 +96,5 @@ class MyHomePage extends StatelessWidget {
             ],
           ),
         ));
-    ;
   }
 }

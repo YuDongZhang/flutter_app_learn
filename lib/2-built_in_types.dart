@@ -23,24 +23,23 @@ main() {
 
   //int->String
   String str = 123.toString(); //数字也是对象
-  print('-----------------------Numbers------------------------');
 
   /// ---------------------------------Strings字符串:String--------------------------------
   print('-----------------------Strings------------------------');
   //Dart 字符串是 UTF-16 编码的字符序列，可以使用单引号或者双引号来创建字符串
   var name = 'damon';
   //可以在字符串中使用表达式： ${expression},如果表达式是一个标识符，可以省略 {}。 如果表达式的结果为一个对象，则 Dart 会调用对象的 toString() 函数来获取一个字符串
-  var names = 'dongnao ${name}';
+  var names = ' dongnao ${name}';
   var rawNames = r'dongnao ${name}'; //r 前缀可以创建一个 “原始 raw” 字符串
-  print('names: ${names}');
-  print('rawNames: ${rawNames}');
+  print(r'$表达式的使用:' + ' names: ${names}');
+  print('r 前缀可以创建一个 “原始 raw” 字符串: ${rawNames}');
   //如果表达式的结果为一个对象，则 Dart 会调用对象的 toString() 函数来获取一个字符串。
 //  print(Map);
   //可以使用三个单引号或者双引号也可以 创建多行字符串对象
   var multiLinesString = '''
   dongnao
   damon''';
-  print('multiLinesString: ${multiLinesString}');
+  print('可以使用三个单引号或者双引号也可以 创建多行字符串对象multiLinesString: ${multiLinesString}');
 
   //StringBuffer
   var sb = StringBuffer(); //dart 2 可以省略new
