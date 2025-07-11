@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'BasicKnowledgePage.dart';
+import 'basic/READMEPage.dart';
+import 'basic/AdvancedKnowledgePage.dart';
+import 'advanced/WidgetKnowledgePage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -70,11 +73,39 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                const Card(
-                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 32),
-                  child: Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Text('进阶知识', style: TextStyle(fontSize: 18)),
+                // 替换为可点击的卡片
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AdvancedKnowledgePage(),
+                      ),
+                    );
+                  },
+                  child: const Card(
+                    margin: EdgeInsets.symmetric(vertical: 8, horizontal: 32),
+                    child: Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Text('进阶知识', style: TextStyle(fontSize: 18)),
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const WidgetKnowledgePage(),
+                      ),
+                    );
+                  },
+                  child: const Card(
+                    margin: EdgeInsets.symmetric(vertical: 8, horizontal: 32),
+                    child: Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Text('控件知识', style: TextStyle(fontSize: 18)),
+                    ),
                   ),
                 ),
                 const Card(
