@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'BasicKnowledgePage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +20,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -29,44 +32,63 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme
-            .of(context)
-            .colorScheme
-            .inversePrimary,
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .headlineMedium,
+            const Text(
+              '知识列表',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 32),
+            // 美观的知识列表
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const BasicKnowledgePage(),
+                      ),
+                    );
+                  },
+                  child: const Card(
+                    margin: EdgeInsets.symmetric(vertical: 8, horizontal: 32),
+                    child: Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Text('基础知识', style: TextStyle(fontSize: 18)),
+                    ),
+                  ),
+                ),
+                const Card(
+                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 32),
+                  child: Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Text('进阶知识', style: TextStyle(fontSize: 18)),
+                  ),
+                ),
+                const Card(
+                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 32),
+                  child: Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Text('高级知识', style: TextStyle(fontSize: 18)),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
