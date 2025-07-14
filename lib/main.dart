@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'BasicKnowledgePage.dart';
+import 'hight/HightKnowledgePage.dart';
 import 'basic/READMEPage.dart';
 import 'basic/AdvancedKnowledgePage.dart';
 import 'advanced/WidgetKnowledgePage.dart';
@@ -108,11 +109,21 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                const Card(
-                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 32),
-                  child: Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Text('高级知识', style: TextStyle(fontSize: 18)),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HightKnowledgePage(),
+                      ),
+                    );
+                  },
+                  child: const Card(
+                    margin: EdgeInsets.symmetric(vertical: 8, horizontal: 32),
+                    child: Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Text('高级知识', style: TextStyle(fontSize: 18)),
+                    ),
                   ),
                 ),
               ],
