@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'BasicKnowledgePage.dart';
 import 'hight/HightKnowledgePage.dart';
 import 'basic/READMEPage.dart';
-import 'basic/AdvancedKnowledgePage.dart';
+import 'highttwo/AdvancedKnowledgePage.dart';
 import 'advanced/WidgetKnowledgePage.dart';
 
 void main() {

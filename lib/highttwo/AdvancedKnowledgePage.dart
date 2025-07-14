@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'AsyncAdvancedExplain.dart';
+import 'IsolateAdvancedExplain.dart';
+import 'StreamAdvancedExplain.dart';
+import 'ReflectionAdvancedExplain.dart';
 
 class AdvancedKnowledgePage extends StatelessWidget {
   const AdvancedKnowledgePage({super.key});
@@ -88,34 +92,87 @@ class MyClass {}
       appBar: AppBar(title: const Text('进阶知识')),
       body: ListView.builder(
         padding: const EdgeInsets.all(16),
-        itemCount: points.length + 1,
+        itemCount: points.length,
         itemBuilder: (context, index) {
-          if (index == 0) {
-            return Card(
-              color: Colors.blue[50],
-              margin: const EdgeInsets.only(bottom: 20),
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text('学习引导', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.blue)),
-                    SizedBox(height: 8),
-                    Text('本页系统梳理 Dart 进阶知识点。每个知识点包含简明讲解和示例代码，建议：'),
-                    SizedBox(height: 4),
-                    Text('1. 结合实际项目需求，深入理解异步、并发、泛型、反射等高级特性；'),
-                    Text('2. 多实践代码生成、包管理、平台集成等进阶能力；'),
-                    Text('3. 善用官方文档和社区资源，持续提升技术水平。'),
-                    SizedBox(height: 4),
-                    Text('如有不懂，可结合官方文档或实际项目多练习。', style: TextStyle(color: Colors.black54)),
-                  ],
-                ),
-              ),
-            );
-          }
-          final item = points[index - 1];
-          return _AdvancedCard(item: item);
+          final item = points[index];
+          return Card(
+            margin: const EdgeInsets.only(bottom: 16),
+            child: ListTile(
+              title: Text(item.title, style: const TextStyle(fontWeight: FontWeight.bold)),
+              subtitle: Text(item.explanation, maxLines: 1, overflow: TextOverflow.ellipsis),
+              onTap: () {
+                if (item.title == '异步编程进阶') {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AsyncAdvancedExplainPage(),
+                    ),
+                  );
+                } else if (item.title.contains('Stream')) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const StreamAdvancedExplainPage(),
+                    ),
+                  );
+                } else if (item.title == '多线程与并发') {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const IsolateAdvancedExplainPage(),
+                    ),
+                  );
+                } else if (item.title == '反射与元编程') {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ReflectionAdvancedExplainPage(),
+                    ),
+                  );
+                } else {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AdvancedPointDetailPage(point: item),
+                    ),
+                  );
+                }
+              },
+            ),
+          );
         },
+      ),
+    );
+  }
+}
+
+class AdvancedPointDetailPage extends StatelessWidget {
+  final _AdvancedPoint point;
+  const AdvancedPointDetailPage({required this.point, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(point.title)),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(point.title, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 12),
+            Text(point.explanation, style: const TextStyle(fontSize: 16)),
+            const SizedBox(height: 16),
+            const Text('示例代码：', style: TextStyle(fontWeight: FontWeight.bold)),
+            const SizedBox(height: 8),
+            Container(
+              width: double.infinity,
+              color: Colors.grey[200],
+              padding: const EdgeInsets.all(8),
+              child: Text(point.code, style: const TextStyle(fontFamily: 'monospace')),
+            ),
+          ],
+        ),
       ),
     );
   }
