@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/demo/DemoPage.dart';
 import 'BasicKnowledgePage.dart';
 import 'hight/HightKnowledgePage.dart';
 import 'basic/READMEPage.dart';
@@ -123,6 +124,23 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Padding(
                       padding: EdgeInsets.all(16),
                       child: Text('高级知识', style: TextStyle(fontSize: 18)),
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const DemoPage(),
+                      ),
+                    );
+                  },
+                  child: const Card(
+                    margin: EdgeInsets.symmetric(vertical: 8, horizontal: 32),
+                    child: Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Text('项目演示', style: TextStyle(fontSize: 18)),
                     ),
                   ),
                 ),
