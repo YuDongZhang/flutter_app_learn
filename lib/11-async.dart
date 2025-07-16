@@ -16,7 +16,7 @@ main() async {
 
 //      .catchError((e) => print(e))//如果不写test默认实现一个返回true的test方法
       .catchError((e) => print('catchError:' + e), test: (Object o) {
-        print('test:' + o);
+        print('test: $o');
         return true; //返回true，会被catchError捕获
 //        return false; //返回false，继续抛出错误，会被下一个catchError捕获
       })

@@ -1,6 +1,6 @@
 main() {
   //使用泛型，很多的容器对象，在创建对象时都可以定义泛型类型,跟java一样
-  var list = List<String>();
+  var list = <String>[];
   list.add('aaa');
   list.add('bbb');
   list.add('ccc');
@@ -32,7 +32,7 @@ main() {
   m.massage.doMassage();
 
   //运行时可判断泛型
-  var names = List<String>();
+  var names = <String>[];
   print(names is List<String>);
   print(names.runtimeType);
 }

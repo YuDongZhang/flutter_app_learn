@@ -1,4 +1,14 @@
 import 'package:flutter/material.dart';
+import '../20-宁浩教程练习/demo/animation/animation_demo.dart';
+import '../20-宁浩教程练习/demo/bloc/bloc_demo.dart';
+import '../20-宁浩教程练习/demo/form_demo.dart';
+import '../20-宁浩教程练习/demo/http/http_demo.dart';
+import '../20-宁浩教程练习/demo/i18n/i18n_demo.dart';
+import '../20-宁浩教程练习/demo/material_components.dart';
+import '../20-宁浩教程练习/demo/navigator_demo.dart';
+import '../20-宁浩教程练习/demo/rxdart/rxdart_demo.dart';
+import '../20-宁浩教程练习/demo/state/state_management_demo.dart';
+import '../20-宁浩教程练习/demo/stream/stream_demo.dart';
 import '../highttwo/AsyncAdvancedExplain.dart';
 import '../highttwo/IsolateAdvancedExplain.dart';
 import '../highttwo/StreamAdvancedExplain.dart';
@@ -28,7 +38,7 @@ class DemoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<_DemoItem> items = [
-      _DemoItem('异步编程进阶', const AsyncAdvancedExplainPage()),
+      _DemoItem('异步编程进阶', PageNav(title: '你好')),
       _DemoItem('多线程与并发', const IsolateAdvancedExplainPage()),
       _DemoItem('Stream 讲解', const StreamAdvancedExplainPage()),
       _DemoItem('反射与元编程', const ReflectionAdvancedExplainPage()),

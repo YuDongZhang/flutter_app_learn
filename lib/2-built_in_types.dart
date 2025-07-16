@@ -52,7 +52,7 @@ main() {
   /// ---------------------------------Booleans布尔值:bool--------------------------------
   print('-----------------------Booleans------------------------');
   //bool :true 和false
-  bool isNull;
+  bool ? isNull;
   print('isNull: ${isNull}');
   print('-----------------------Booleans------------------------');
 
@@ -60,18 +60,18 @@ main() {
   print('-----------------------Lists------------------------');
   //声明
   //自动长度
-  List growableList = List();
+  List growableList = [];
 //  List growableList = new List()..length = 3;
   growableList..add(1)..add(2)..add('damon');
   print('growableList: ${growableList}');
   //固定长度
-  var list = List(3); //List的声明，可以用var也可用List。
+  var list =[]; //List的声明，可以用var也可用List。
   list[0] = 1; //下标索引从0开始
   list[1] = 2;
   list[2] = 'damon';
   print('list: ${list}');
   //元素类型固定
-  var typeList = List<int>();
+  var typeList = <int>[];
   typeList.add(1);
   typeList.add(2);
   typeList.add(3);
