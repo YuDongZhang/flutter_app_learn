@@ -8,7 +8,7 @@ import 'demo/bloc/BlocDemo.dart';
 import 'demo/bottom_navigation_bar_demo.dart';
 import 'demo/drawer-demo.dart';
 import 'demo/form_demo.dart';
-import 'demo/http/http_demo.dart';
+import 'demo/http/HttpDemo.dart';
 import 'demo/i18n/i18n_demo.dart';
 import 'demo/i18n/intl/ninghao_demo_localizations.dart';
 import 'demo/layout_demo.dart';

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/linghao/demo/form_demo.dart';
+import 'package:flutter_app_learn/linghao/demo/provider/OnePage.dart';
 import 'package:provider/provider.dart';
 import '../highttwo/AsyncAdvancedExplain.dart';
 import '../highttwo/IsolateAdvancedExplain.dart';
@@ -9,9 +10,10 @@ import '../linghao/demo/animation/animation_demo.dart';
 import '../linghao/demo/bloc/BlocDemo.dart';
 import '../linghao/demo/bloc/CounterBlocDemo.dart';
 import '../linghao/demo/bloc/CounterBlocDemo.dart' as counterBlocDemo;
-import '../linghao/demo/http/http_demo.dart';
+import '../linghao/demo/http/HttpDemo.dart';
 import '../linghao/demo/material_components.dart';
 import '../linghao/demo/navigator_demo.dart';
+import '../linghao/demo/provider/OneProvider.dart';
 import '../linghao/demo/rxdart/rxdart_demo.dart';
 import '../linghao/demo/stream/stream_demo.dart';
 // 你需要根据实际路径导入下列页面
@@ -37,6 +39,10 @@ class DemoPage extends StatelessWidget {
       ),// 为 CounterHome 提供 CounterProvider
       _DemoItem('http', HttpDemo()),
       _DemoItem('Animation', AnimationDemo()),
+      _DemoItem('one', ChangeNotifierProvider(
+        create: (_) => OneProvider(),
+        child: const OnePage(),
+      )),
     ];
     return Scaffold(
       appBar: AppBar(title: const Text('Demo 列表')),
