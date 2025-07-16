@@ -18,8 +18,7 @@ class I18nDemo extends StatelessWidget {
             Text('${locale.languageCode}'),
             Text(locale.toString()),
             Text(
-              Localizations.of(context, NinghaoDemoLocalizations)
-                  .greet('ninghao'),
+              'hahahha',
               style: Theme.of(context).textTheme.titleLarge,
             )
           ],

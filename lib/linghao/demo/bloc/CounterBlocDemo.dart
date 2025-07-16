@@ -19,17 +19,20 @@ class CounterHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Consumer<CounterProvider>(
-        builder: (context, provider, child) {
-          return ActionChip(
-            label: Text('${provider.count}'),
-            onPressed: () {
-              provider.increment(); // 点击增加计数器
-            },
-          );
-        },
+    return Scaffold(
+      body: Center(
+        child: Consumer<CounterProvider>(
+          builder: (context, provider, child) {
+            return ActionChip(
+              label: Text('${provider.count}'),
+              onPressed: () {
+                provider.increment();
+              },
+            );
+          },
+        ),
       ),
+      floatingActionButton: CounterActionButton(),
     );
   }
 }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'demo/animation/animation_demo.dart';
 import 'demo/basic_demo.dart';
-import 'demo/bloc/bloc_demo.dart';
+import 'demo/bloc/BlocDemo.dart';
 import 'demo/bottom_navigation_bar_demo.dart';
 import 'demo/drawer-demo.dart';
 import 'demo/form_demo.dart';
@@ -42,7 +42,7 @@ class App extends StatelessWidget {
       //关闭debug 条幅
       // home: NavigatorDemo(),
       ///定义的初始的路由
-      initialRoute: '/I18nDemo',
+      initialRoute: '/',
 
       ///事先定义好一些带名字的路由 , 然后直接 push 名字
       ///routes 值是 map
@@ -63,11 +63,11 @@ class App extends StatelessWidget {
         '/I18nDemo': (context) => I18nDemo(),
       },
       theme: ThemeData(
-        //主题颜色修改 , 不要这一行是 蓝色
+          //主题颜色修改 , 不要这一行是 蓝色
           primarySwatch: Colors.yellow,
           highlightColor: Color.fromRGBO(255, 255, 255, 0.5), //设置主题的高亮颜色
           splashColor: Colors.white70 //设置 水波纹
-      ),
+          ),
     );
   }
 }

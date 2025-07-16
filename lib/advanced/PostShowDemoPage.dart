@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../20-宁浩教程练习/model/post.dart';
+import '../linghao/model/post.dart';
 
 class PostShowDemoPage extends StatelessWidget {
   const PostShowDemoPage({super.key});

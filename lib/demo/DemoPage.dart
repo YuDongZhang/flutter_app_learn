@@ -1,47 +1,42 @@
 import 'package:flutter/material.dart';
-import '../20-宁浩教程练习/demo/animation/animation_demo.dart';
-import '../20-宁浩教程练习/demo/bloc/bloc_demo.dart';
-import '../20-宁浩教程练习/demo/form_demo.dart';
-import '../20-宁浩教程练习/demo/http/http_demo.dart';
-import '../20-宁浩教程练习/demo/i18n/i18n_demo.dart';
-import '../20-宁浩教程练习/demo/material_components.dart';
-import '../20-宁浩教程练习/demo/navigator_demo.dart';
-import '../20-宁浩教程练习/demo/rxdart/rxdart_demo.dart';
-import '../20-宁浩教程练习/demo/state/state_management_demo.dart';
-import '../20-宁浩教程练习/demo/stream/stream_demo.dart';
+import 'package:flutter_app_learn/linghao/demo/form_demo.dart';
+import 'package:provider/provider.dart';
 import '../highttwo/AsyncAdvancedExplain.dart';
 import '../highttwo/IsolateAdvancedExplain.dart';
 import '../highttwo/StreamAdvancedExplain.dart';
 import '../highttwo/ReflectionAdvancedExplain.dart';
+import '../linghao/demo/animation/animation_demo.dart';
+import '../linghao/demo/bloc/BlocDemo.dart';
+import '../linghao/demo/bloc/CounterBlocDemo.dart';
+import '../linghao/demo/bloc/CounterBlocDemo.dart' as counterBlocDemo;
+import '../linghao/demo/http/http_demo.dart';
+import '../linghao/demo/material_components.dart';
+import '../linghao/demo/navigator_demo.dart';
+import '../linghao/demo/rxdart/rxdart_demo.dart';
+import '../linghao/demo/stream/stream_demo.dart';
 // 你需要根据实际路径导入下列页面
 // import 'package:your_project/xxx.dart';
 
 class DemoPage extends StatelessWidget {
   const DemoPage({super.key});
 
-  // 移植自 04-基础部件.dart
-  static final Map<String, WidgetBuilder> routes = {
-    '/': (context) => const DemoPage(),
-    '/about': (context) => PageNav(title: '你好'),
-    '/form': (context) => FormDemo(),
-    '/mdc': (context) => MaterialComponents(),
-    '/state_manage': (context) => StateManagementDemo(),
-    '/stream': (context) => StreamDemo(),
-    '/rxdart': (context) => RxDartDemo(),
-    '/Bloc': (context) => BlocDemo(),
-    '/http': (context) => HttpDemo(),
-    '/Animation': (context) => AnimationDemo(),
-    '/I18nDemo': (context) => I18nDemo(),
-    // 可继续添加新页面
-  };
-
   @override
   Widget build(BuildContext context) {
     final List<_DemoItem> items = [
-      _DemoItem('异步编程进阶', PageNav(title: '你好')),
-      _DemoItem('多线程与并发', const IsolateAdvancedExplainPage()),
-      _DemoItem('Stream 讲解', const StreamAdvancedExplainPage()),
-      _DemoItem('反射与元编程', const ReflectionAdvancedExplainPage()),
+      _DemoItem('导航', PageNav(title: '你好')),
+      _DemoItem('form', FormDemo()),
+      _DemoItem('mdc',  MaterialComponents()),
+      _DemoItem('stream', StreamDemo()),
+      _DemoItem('rxdart', RxDartDemo()),
+      _DemoItem('Bloc', BlocDemo()),
+      _DemoItem('provider',
+        ChangeNotifierProvider(
+          create: (_) => CounterProvider(),
+          child: counterBlocDemo.CounterHome(),
+        ),
+      ),// 为 CounterHome 提供 CounterProvider
+      _DemoItem('http', HttpDemo()),
+      _DemoItem('Animation', AnimationDemo()),
     ];
     return Scaffold(
       appBar: AppBar(title: const Text('Demo 列表')),
