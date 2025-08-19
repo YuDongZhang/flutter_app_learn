@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/demo/DemoPage.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'BasicKnowledgePage.dart';
 import 'hight/HightKnowledgePage.dart';
 import 'basic/READMEPage.dart';
 import 'highttwo/AdvancedKnowledgePage.dart';
 import 'advanced/WidgetKnowledgePage.dart';
+import 'linghao/demo/getx/MyService.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,17 +20,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    // 在 GetMaterialApp 之前，进行依赖注入
+    // 注册 MyService，使其可以在任何 Controller 或 Widget 中被访问
+    Get.put(MyService());
+    // 注册 MyController，GetX 会自动以 "lazy" 模式创建它，即只有在第一次使用时才会创建
+    Get.lazyPut(() => MyController());
+
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // 配置命名路由
+      getPages: [
+        GetPage(name: '/third', page: () => const DemoPage()),
+      ],
     );
   }
 }
-
-
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
