@@ -73,8 +73,8 @@ main() {
 }
 
 class Point {
-  num x;
-  num y;
+  num? x;
+  num? y;
   var distanceFromOrigin;
 
   //普通构造函数
@@ -96,7 +96,7 @@ class Point {
   Point.alongXAxis(num x) : this(x, 0);
 
   //初始化列表
-  Point(this.x, this.y) : distanceFromOrigin = sqrt(x * x + y * y);
+  Point(this.x, this.y) : distanceFromOrigin = sqrt(x! * x + y! * y);
 
   @override
   String toString() {
@@ -118,8 +118,8 @@ class Parent {
 }
 
 class Child extends Parent {
-  int x;
-  int y;
+  late int x;
+  late int y;
 
   //如果超类没有默认构造函数， 则你需要手动的调用超类的其他构造函数
   Child(x, y) : super.fromJson(x, y) {
@@ -153,7 +153,7 @@ class Point2 {
 
 class Singleton {
   String name;
-  static Singleton _cache; //工厂构造函数无法访问 this。所以这里要静态的
+  static Singleton? _cache; //工厂构造函数无法访问 this。所以这里要静态的
 
   //工厂构造函数，关键字factory
   //工厂构造函数是一种构造函数,与普通构造函数不同,工厂函数不会自动生成实例,而是通过代码来决定返回的实例对象.
@@ -165,8 +165,8 @@ class Singleton {
 //
 //    return Singleton._cache ??= Singleton._newObject(name);
 //  }
-  factory Singleton([String name = 'singleton']) =>
-      Singleton._cache ??= Singleton._newObject(name);
+
+  factory Singleton([String name = 'singleton']) => Singleton._cache ??= Singleton._newObject(name);
 
 //定义一个命名构造函数用来生产实例
   Singleton._newObject(this.name);

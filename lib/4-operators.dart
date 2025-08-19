@@ -3,6 +3,7 @@ main() {
   /// ---------------------------------后缀操作符 ?.--------------------------------
   //  条件成员访问 和 . 类似，但是左边的操作对象不能为 null，例如 foo?.bar 如果 foo 为 null 则返回 null，否则返回 bar 成员
   String a;
+  a = "ljklj";
   print(a?.length);
 
   /// ---------------------------------取商操作符 ~/--------------------------------
@@ -23,7 +24,7 @@ main() {
 
   //is 如果对象是指定的类型返回 True
   print(iNum is int);
-  Child child;
+  Child ? child;
   Child child1 = new Child();
   print(child is Parent); //child is Null
   print(child1 is Parent);
@@ -36,7 +37,7 @@ main() {
   bool isFinish = true;
   String txtVal = isFinish ? 'yes' : 'no';
   // expr1 ?? expr2，如果 expr1 是 non-null，返回其值； 否则执行 expr2 并返回其结果。
-  bool isPaused;
+  bool ? isPaused;
   isPaused = isPaused ?? false;
   //或者
   isPaused ??= false;

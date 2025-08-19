@@ -23,7 +23,7 @@ main() {
   int add2(int x, int y) => x + y;
 
   //可选命名参数：使用 {param1, param2, …} 的形式来指定命名参数
-  int add3({int x, int y, int z}) {
+  int add3({int ? x, int ? y, int ? z}) {
     x ??= 1;
     y ??= 2;
     z ??= 3;
@@ -33,7 +33,7 @@ main() {
   print(add3());
 
   //可选位置参数：把可选参数放到 [] 中，必填参数要放在可选参数前面
-  int add4(int x, [int y, int z]) {
+  int add4(int x, [int ? y, int ? z]) {
     y ??= 2;
     z ??= 3;
     return x + y + z;

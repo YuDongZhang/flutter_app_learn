@@ -12,7 +12,7 @@ main() {
   /// ---------------------------------异常的捕获try catch--------------------------------
   try {
 
-    throw new NullThrownError();
+    throw new Exception();
 //    throw new OutOfMemoryError();
   } on OutOfMemoryError {
     //on 指定异常类型
