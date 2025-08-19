@@ -26,6 +26,8 @@ dependencies:
 
   flutter_bloc: ^8.1.5
 
+  dio: ^5.9.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
