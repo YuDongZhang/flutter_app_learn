@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'GetxPage.dart';
 import 'MyService.dart';
 import 'RouteManagementPage.dart';
+import 'UtilsPage.dart';
 
 class GetxFeaturesPage extends StatelessWidget {
   const GetxFeaturesPage({super.key});
@@ -35,7 +36,7 @@ class GetxFeaturesPage extends StatelessWidget {
       {
         'title': '工具类 (Utils)',
         'subtitle': '例如 Get.dialog(), Get.snackbar(), Get.bottomSheet()',
-        'page': () => const PlaceholderPage(title: '工具类示例'),
+        'page': () => const UtilsPage(),
       },
     ];
 

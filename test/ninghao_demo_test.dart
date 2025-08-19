@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app_learn/20-%E5%AE%81%E6%B5%A9%E6%95%99%E7%A8%8B%E7%BB%83%E4%B9%A0/demo/test_demo.dart';
+import 'package:flutter_app_learn/advanced/TestDemoPage.dart';
+import 'package:flutter_app_learn/linghao/demo/test_demo.dart';
+
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
