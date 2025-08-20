@@ -32,6 +32,8 @@ dependencies:
 
   flutter_riverpod: ^2.5.1
 
+  uuid: ^4.4.0
+
 
 dev_dependencies:
   flutter_test:

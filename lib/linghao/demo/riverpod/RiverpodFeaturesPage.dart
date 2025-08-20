@@ -3,7 +3,9 @@ import 'package:flutter_app_learn/linghao/demo/riverpod/provider_page.dart';
 
 import '../getx/GetxListPage.dart';
 import 'CounterPage.dart';
-
+import 'FutureProviderPage.dart';
+import 'NotifierProviderPage.dart';
+import 'StreamProviderPage.dart';
 
 class RiverpodFeaturesPage extends StatelessWidget {
   const RiverpodFeaturesPage({super.key});
@@ -25,17 +27,17 @@ class RiverpodFeaturesPage extends StatelessWidget {
       {
         'title': 'FutureProvider',
         'subtitle': '用于处理异步操作（如网络请求）并提供其结果',
-        'page': const PlaceholderPage(title: 'FutureProvider 示例'),
+        'page': const FutureProviderPage(),
       },
       {
         'title': 'StreamProvider',
         'subtitle': '用于监听 Stream 并提供其数据',
-        'page': const PlaceholderPage(title: 'StreamProvider 示例'),
+        'page': const StreamProviderPage(),
       },
       {
         'title': 'NotifierProvider',
         'subtitle': '用于更复杂的业务逻辑和状态',
-        'page': const PlaceholderPage(title: 'NotifierProvider 示例'),
+        'page': const NotifierProviderPage(),
       },
     ];
 
