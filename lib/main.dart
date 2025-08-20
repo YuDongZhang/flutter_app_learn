@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/demo/DemoPage.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -12,7 +13,9 @@ import 'advanced/WidgetKnowledgePage.dart';
 import 'linghao/demo/getx/MyService.dart';
 
 void main() {
-  runApp(const MyApp());
+  // runApp(const MyApp());
+  // 为了让 Riverpod 在整个应用中生效，需要用 ProviderScope 包裹根组件
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

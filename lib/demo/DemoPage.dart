@@ -16,6 +16,7 @@ import '../linghao/demo/http/HttpDemo.dart';
 import '../linghao/demo/material_components.dart';
 import '../linghao/demo/navigator_demo.dart';
 import '../linghao/demo/provider/OneProvider.dart';
+import '../linghao/demo/riverpod/RiverpodFeaturesPage.dart';
 import '../linghao/demo/rxdart/rxdart_demo.dart';
 import '../linghao/demo/stream/stream_demo.dart';
 
@@ -51,6 +52,8 @@ class DemoPage extends StatelessWidget {
           )),
       _DemoItem('dio 使用', DioPage()),
       _DemoItem('getx 使用', GetxFeaturesPage()),
+      //学习 Riverpod
+      _DemoItem('Riverpod 使用', const RiverpodFeaturesPage()),
     ];
     return Scaffold(
       appBar: AppBar(title: const Text('Demo 列表')),
