@@ -2,13 +2,15 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/advanced/TestDemoPage.dart';
+import 'package:flutter_app_learn/advanced/TestDemoPage.dart' as demo;
 import 'package:flutter_app_learn/linghao/demo/test_demo.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('should return hello + something-', () {
-    var str = NinghaoTestDemo.greet('ninghao');
+    // 使用前缀来明确调用哪个库中的方法
+    var str = demo.NinghaoTestDemo.greet('ninghao');
     //断言
     expect(str, 'hello ninghao');
   });

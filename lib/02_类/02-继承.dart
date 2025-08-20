@@ -33,7 +33,10 @@ class Child extends Parent {
   int y;
 
   //如果超类没有默认构造函数， 则你需要手动的调用超类的其他构造函数
-  Child(x, y) : super.fromJson(x, y) {
+  Child(x, y)
+      : x = x,
+        y = y,
+        super.fromJson(x, y) {
     //调用超类构造函数的参数无法访问 this
     print('子类构造函数');
   }
@@ -47,7 +50,7 @@ class Child extends Parent {
   }
 }
 
-main(){
+main() {
   //调用超类构造函数
   var child = Child.fromJson(1, 2);
   var child1 = Child(3, 4);

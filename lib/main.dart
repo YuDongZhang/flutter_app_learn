@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_learn/demo/ArchitecturePatternPage.dart';
 import 'package:flutter_app_learn/demo/DemoPage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
@@ -157,6 +158,23 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Padding(
                       padding: EdgeInsets.all(16),
                       child: Text('项目演示', style: TextStyle(fontSize: 18)),
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ArchitecturePatternPage(),
+                      ),
+                    );
+                  },
+                  child: const Card(
+                    margin: EdgeInsets.symmetric(vertical: 8, horizontal: 32),
+                    child: Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Text('项目演示二', style: TextStyle(fontSize: 18)),
                     ),
                   ),
                 ),
