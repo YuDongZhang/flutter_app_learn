@@ -1,7 +1,7 @@
 import 'dart:core';
 
 void main() {
-/*  //未初始化变量声明 , var dynamic  object 都可以声明都可以改变
+  //未初始化变量声明 , var dynamic  object 都可以声明都可以改变
   dynamic data;
   data = 1;
   data = "aaaaaaa";
@@ -18,12 +18,12 @@ void main() {
   //object 在编码的时候就会检查
   //test 方法根本就没有写
   d1.test();
- // o1.test();*/
+ // o1.test();
 
 
-  /*var varList = const [1, 2, 3];
+  var varList = const [1, 2, 3];
   final finalList = const [1, 2, 3];
-  const constList = [1, 2, 3];*/
+  const constList = [1, 2, 3];
 
 //可选命名参数：使用 {param1, param2, …} 的形式来指定命名参数
 //  int add2(int c,{int a,int b}){
@@ -32,12 +32,12 @@ void main() {
 // print(add2(3,a:1,b: 3));
 
 //可选位置参数：把可选参数放到 [] 中，必填参数要放在可选参数前面
-  /*int add3(int x, [int y, int z]) {
-    return x + y + z;
+  int add3(int x, [int? y, int? z]) {
+    return x + y! + z!;
   }
   print(add3(1));
   print(add3(1,3));
-  print(add3(1,2,3));*/
+  print(add3(1,2,3));
 
   /*List test(List list, String func(str)) {
     for (var i = 0; i < list.length; i++) {
