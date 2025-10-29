@@ -3,6 +3,7 @@ import 'DesignPatternExplain.dart';
 import 'HightKnowledgeExplain.dart';
 import 'PerformanceOptimizeExplain.dart';
 import 'PlatformChannelExplain.dart';
+import 'PlatformChannelAdvancedExplain.dart';
 import 'CustomRenderExplain.dart';
 import 'AdvancedAnimationExplain.dart';
 
@@ -26,6 +27,11 @@ class HightKnowledgePage extends StatelessWidget {
         title: '平台通道',
         description: 'Flutter与原生平台通信的高级用法。',
         example: '通过MethodChannel与Android/iOS原生代码交互。',
+      ),
+      HightKnowledgeExplain(
+        title: '平台通道二',
+        description: 'Flutter与原生平台通信的高级用法。多种方式',
+        example: '多种方式进行平台通道交互。方法的互相调用，数据的传递',
       ),
       HightKnowledgeExplain(
         title: '自定义渲染',
@@ -86,6 +92,13 @@ class HightKnowledgePage extends StatelessWidget {
                       builder: (context) => const AdvancedAnimationPage(),
                     ),
                   );
+                } else if (item.title == '平台通道二') {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PlatformChannelAdvancedPage(),
+                    ),
+                  );
                 }
               },
               child: Padding(
@@ -114,4 +127,4 @@ class HightKnowledgePage extends StatelessWidget {
       ),
     );
   }
-} 
+}
