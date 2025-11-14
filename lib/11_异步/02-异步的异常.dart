@@ -8,8 +8,7 @@ void main(){
   .catchError((e)=>print(e),test: (Object object){ // 这里不写test 会默认有一个 , 返回的是 true
     print('test');
     return false;//返回 false 这样写不会捕获
-  })
-  ;
+  });
 }
 
 futureTask(){

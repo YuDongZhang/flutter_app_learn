@@ -9,6 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // - BlocProvider 提供 Bloc 实例。
 // - BlocBuilder 根据状态变化重建 UI。
 
+//记忆方式： 事件 ， 状态 ， 处理逻辑
+
 // 事件
 abstract class CounterEvent {}
 
@@ -116,12 +118,14 @@ class CounterActionButton extends StatelessWidget {
   
    3. 使用 BLoC 的主要好处是什么？ 
    1. 关注点分离 (Separation of Concerns)：UI 代码只负责展示，业务逻辑代码只负责处理逻辑。这让代码结构非常清晰。
-    2. 易于测试 (Testability)：由于业务逻辑被封装在 BLoC 中，独立于 UI，我们可以非常方便地对 BLoC 进行单元测试。只需给它输入事件，然后断言它是否输出了正确的状态即可。 
+    2. 易于测试 (Testability)：由于业务逻辑被封装在 BLoC 中，独立于 UI，我们可以非常方便地对 BLoC 进行单元测试。只需给它输入事件，
+        然后断言它是否输出了正确的状态即可。
     3. 可预测性 (Predictability)：状态的每一次改变都源于一个明确的事件，数据流是单向的，这使得追踪和调试 Bug 变得更加容易。
      4. 性能优化：通过 BlocBuilder，我们可以精确地控制只重建那些依赖特定状态的 Widget，避免不必要的 UI 刷新。 
     
     
-     总结 “总的来说，BLoC 是一个强大的状态管理模式，它通过将业务逻辑与 UI 分离，创建了一个可预测、可测试且结构清晰的应用架构。它依赖于事件驱动和状态输出的单向数据流，非常适合构建复杂且需要长期维护的 Flutter 应用。”        
+     总结 “总的来说，BLoC 是一个强大的状态管理模式，它通过将业务逻辑与 UI 分离，创建了一个可预测、可测试且结构清晰的应用架构。
+    它依赖于事件驱动和状态输出的单向数据流，非常适合构建复杂且需要长期维护的 Flutter 应用。”        
 
 
 
