@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class MyFutureBuilderWidget extends StatelessWidget {
-
   // 模拟的网络请求
   Future<String> fetchUserData() {
     return Future.delayed(Duration(seconds: 2), () {
@@ -24,7 +23,6 @@ class MyFutureBuilderWidget extends StatelessWidget {
           // 3. 'builder' 函数会在 Future 状态改变时-ET-新执行
           //    'snapshot' 包含了 Future 的当前状态和数据
           builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-
             // 状态 1：Future 正在进行中
             if (snapshot.connectionState == ConnectionState.waiting) {
               return CircularProgressIndicator();

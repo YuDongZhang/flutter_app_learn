@@ -93,7 +93,8 @@ class AsyncConceptPage extends StatelessWidget {
                 children: [
                   Text('• 同步 (Synchronous) - 坏的！ 你告诉服务员你要什么，然后你（和整个餐厅）都必须站在那里，盯着厨房，直到你的菜做-ET-来。期间你不能做任何事。'),
                   SizedBox(height: 8),
-                  Text('• 异步 (Asynchronous) - 好的！ 你告诉服务员你要什么，服务员给你一个“取餐器”（一个 Future）。然后你就可以回到座位上玩手机、和朋友聊天（App 保持响应）。当你的菜（数据）准备好了，取餐器震动（Future 完成），你再去取餐（使用数据更新 UI）。'),
+                  Text(
+                      '• 异步 (Asynchronous) - 好的！ 你告诉服务员你要什么，服务员给你一个“取餐器”（一个 Future）。然后你就可以回到座位上玩手机、和朋友聊天（App 保持响应）。当你的菜（数据）准备好了，取餐器震动（Future 完成），你再去取餐（使用数据更新 UI）。'),
                 ],
               ),
             ),
@@ -179,7 +180,8 @@ class AsyncConceptPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('• 用 async 关键字标记一个函数，表明这个函数是异步函数。'),
-                        Text('• 异步函数总是返回一个 Future。如果你的函数声明返回 Future<String>，它会按预期工作。如果你声明返回 String，async 关键字会自动-EB-它包装成 Future<String>。'),
+                        Text(
+                            '• 异步函数总是返回一个 Future。如果你的函数声明返回 Future<String>，它会按预期工作。如果你声明返回 String，async 关键字会自动-EB-它包装成 Future<String>。'),
                       ],
                     ),
                   ),

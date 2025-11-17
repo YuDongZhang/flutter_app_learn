@@ -55,7 +55,7 @@ class DemoPage extends StatelessWidget {
       _DemoItem('getx 使用', GetxFeaturesPage()),
       //学习 Riverpod
       _DemoItem('Riverpod 使用', const RiverpodFeaturesPage()),
-      _DemoItem('Async Demos', const AsyncDemoListPage()),
+      _DemoItem('异步 Demos', const AsyncDemoListPage()),
     ];
     return Scaffold(
       appBar: AppBar(title: const Text('Demo 列表')),
