@@ -31,20 +31,20 @@ class DemoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<_DemoItem> items = [
       _DemoItem('导航', PageNav(title: '你好')),
-      _DemoItem('form', FormDemo()),
+      _DemoItem('formb表单提交', FormDemo()),
       _DemoItem('各种控件', MaterialComponents()),
-      _DemoItem('stream', StreamDemo()),
+      _DemoItem('stream流异步', StreamDemo()),
       _DemoItem('rxdart', RxDartDemo()),
-      _DemoItem('Bloc', BlocDemo()),
+      _DemoItem('Bloc示例', BlocDemo()),
       _DemoItem(
-        'provider',
+        'provider示例',
         ChangeNotifierProvider(
           create: (_) => CounterProvider(),
           child: counterBlocDemo.CounterHome(),
         ),
       ), // 为 CounterHome 提供 CounterProvider
-      _DemoItem('http', HttpDemo()),
-      _DemoItem('Animation', AnimationDemo()),
+      _DemoItem('http 示例', HttpDemo()),
+      _DemoItem('Animation 示例', AnimationDemo()),
       _DemoItem(
           'one',
           ChangeNotifierProvider(

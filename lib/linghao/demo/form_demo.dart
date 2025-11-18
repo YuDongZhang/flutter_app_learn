@@ -12,9 +12,26 @@ class FormDemo extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.all(8.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              RegisterForm(),
+              Row(
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.arrow_back),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    RegisterForm(),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -22,6 +39,7 @@ class FormDemo extends StatelessWidget {
     );
   }
 }
+
 
 class RegisterForm extends StatefulWidget {
   RegisterFormState createState() => RegisterFormState();

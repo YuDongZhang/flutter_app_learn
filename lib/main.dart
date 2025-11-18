@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_learn/demo/ArchitecturePatternPage.dart';
 import 'package:flutter_app_learn/demo/DemoPage.dart';
+import 'package:flutter_app_learn/demo/MoreDemosPage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -161,6 +162,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
+
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -178,6 +180,23 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MoreDemosPage(),
+                      ),
+                    );
+                  },
+                  child: const Card(
+                    margin: EdgeInsets.symmetric(vertical: 8, horizontal: 32),
+                    child: Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Text('项目演示三', style: TextStyle())
+                    )
+                  )
+                )
               ],
             ),
           ],
