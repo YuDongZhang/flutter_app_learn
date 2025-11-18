@@ -34,7 +34,7 @@ class DemoPage extends StatelessWidget {
       _DemoItem('formb表单提交', FormDemo()),
       _DemoItem('各种控件', MaterialComponents()),
       _DemoItem('stream流异步', StreamDemo()),
-      _DemoItem('rxdart', RxDartDemo()),
+      _DemoItem('rxdart 示例', RxDartDemo()),
       _DemoItem('Bloc示例', BlocDemo()),
       _DemoItem(
         'provider示例',

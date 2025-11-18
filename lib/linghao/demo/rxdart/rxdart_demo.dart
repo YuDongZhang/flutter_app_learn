@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -27,10 +28,13 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
     super.initState();
     _textFieldSubject = PublishSubject<String>();
     _textFieldSubject
-        // .map((item) => 'item: $item')//数据转换 , 处理
-        // .where((item) => item.length > 9)//只有满足条件的数据才被通过
-        .debounce(Duration(milliseconds: 500) as Stream<void> Function(String event))//用户输入就会打印, 用户一直输入会浪费资源,做时间限制, 用户输入后停止
-        .listen((data) => print(data));
+        .map((item) => 'item: $item')//数据转换 , 处理
+        .where((item) => item.length > 9)//只有满足条件的数据才被通过
+        .debounce((_) => TimerStream(true, Duration(milliseconds: 500)))//用户输入就会打印, 用户一直输入会浪费资源,做时间限制, 用户输入后停止
+        .listen(
+          (data) => print(data),
+          onError: (error) => print('Error: $error'),
+        );
 
     // Observable<String> _observable =
     // Observable(Stream.fromIterable(['hello', '您好']));//可迭代的数据
