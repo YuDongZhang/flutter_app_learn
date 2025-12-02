@@ -12,6 +12,7 @@ import 'hight/HightKnowledgePage.dart';
 import 'basic/READMEPage.dart';
 import 'highttwo/AdvancedKnowledgePage.dart';
 import 'advanced/WidgetKnowledgePage.dart';
+import 'linghao/demo/getx/features/detail_page.dart';
 import 'linghao/demo/getx/MyService.dart';
 
 void main() {
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
       // 配置命名路由
       getPages: [
         GetPage(name: '/third', page: () => const DemoPage()),
+        GetPage(name: '/detail/:id', page: () => const DetailPage()),
       ],
     );
   }

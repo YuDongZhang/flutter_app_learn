@@ -12,6 +12,7 @@ import '../linghao/demo/bloc/BlocDemo.dart';
 import '../linghao/demo/bloc/CounterBlocDemo.dart';
 import '../linghao/demo/bloc/CounterBlocDemo.dart' as counterBlocDemo;
 import '../linghao/demo/getx/GetxListPage.dart';
+import '../linghao/demo/getx/getx_features_page.dart';
 import '../linghao/demo/http/HttpDemo.dart';
 import '../linghao/demo/material_components.dart';
 import '../linghao/demo/navigator_demo.dart';
